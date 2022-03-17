@@ -1,9 +1,9 @@
 package Controlador;
 
 import javax.swing.JOptionPane;
+import Modelo.*;
+import Vista.*;
 
-import Modelo.Cliente;
-import Vista.VistaCliente;
 
 public class ConbtroladorCliente {
 	// Atributos
