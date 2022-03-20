@@ -22,7 +22,7 @@ public class Datos {
 	// añadir un cliente
 	public void addCliente(Cliente cliente) {
 		// llamar al metodo correspondiente pasando los datos del cliente
-		listaClientes.addCliente(Cliente cliente)
+		listaClientes.addCliente(cliente)
 	}
 	// toString solo para la lista clientes
 	public String toStringClientes() {
