@@ -5,18 +5,24 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import javacoders.modelo.Articulo;
+import javacoders.modelo.Datos;
 import javacoders.vista.VMenuPrincipal;
 // clase de menu princiapl, desde aqui se selecciona que vamos a gestionar
 public class ControlerMain {
 	
 	// inicializar clases
-	VMenuPrincipal menu = new VMenuPrincipal();
+	private VMenuPrincipal menu = new VMenuPrincipal();
 		//gestion de aticulos
-	ControladorArticulo CArticulo = new ControladorArticulo();
-	ArrayList<Articulo> art= new ArrayList<Articulo>();
+	private Datos datos;
+	private ControladorArticulo CArticulo;
+	private ControladorPedido CPedido;
+	private ControladorCliente CCliente;
 	
 	public ControlerMain() {
-		
+		 datos = new Datos();
+		 CArticulo = new ControladorArticulo(datos);
+		 CPedido = new ControladorPedido(datos);
+		 CCliente = new ControladorCliente(datos);
 	}
 	
 	// metodo para el control del menu principal

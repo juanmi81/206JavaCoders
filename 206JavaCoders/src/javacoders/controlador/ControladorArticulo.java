@@ -14,9 +14,9 @@ public class ControladorArticulo {
 	private Datos datos;
 	private Scanner sc = new Scanner(System.in);
 	
-	public ControladorArticulo() {
+	public ControladorArticulo(Datos datos) {
 		vista = new VistaArticulo();
-		datos = new Datos();
+		this.datos = datos;
 	}
 
 	public VistaArticulo getVista(Articulo art) {

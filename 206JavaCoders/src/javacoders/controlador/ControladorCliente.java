@@ -13,6 +13,10 @@ public class ControladorCliente {
 		private VistaCliente vista;
 		private Datos datos;
 		
+		public ControladorCliente(Datos datos) {
+			this.datos= datos;
+		}
+		
 		// geter y seter de atributos
 		public Cliente getCliente(Cliente cli) {
 			return modelo;

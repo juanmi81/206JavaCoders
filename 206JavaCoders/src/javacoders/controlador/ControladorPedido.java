@@ -12,6 +12,10 @@ public class ControladorPedido {
 			private VistaPedido vista;
 			private Datos datos;
 			
+			public ControladorPedido(Datos datos) {
+				this.datos= datos;
+			}
+			
 			// geter y seter de atributos
 			public Pedido getPedido(Pedido ped) {
 				return modelo;
