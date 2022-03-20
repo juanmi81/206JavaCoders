@@ -1,6 +1,6 @@
-package Vista;
+package javacoders.vista;
 
-import Modelo.Cliente;
+import javacoders.modelo.Cliente;
 
 public class VistaCliente {
 	Cliente client;

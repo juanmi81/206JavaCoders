@@ -1,4 +1,4 @@
-package Vista;
+package javacoders.vista;
 
 public class VMenuPrincipal {
 

@@ -1,24 +1,23 @@
-package Vista;
+package javacoders.vista;
 
-//import Modelo.Articulo;
-import Modelo.Articulo;
+import javacoders.modelo.Pedido;
 
-public class VistaArticulo {
+public class VistaPedido {
+
+	Pedido ped;
 	
-	Articulo articul;
-    
-    public VistaArticulo(Articulo articuloinstanciado) {
-        this.articul = articuloinstanciado;
+	public VistaPedido(Pedido pedidoinstanciado) {
+        this.ped = pedidoinstanciado;
     }
 
  // visualización del menu articulos
 	public int getOpcion() {
 		int op = 0;
 		try {
-			System.out.println("1. Agregar Articulo \n 2. Mostrar Articulo \n 3. Salir del menu Articulos");
+			System.out.println(" 1. Agregar Articulo \n 2. Mostrar Articulo \n 3. Mostrar pedidos pendientes \n 4. Mostrar pedidos realizados \n 5. Salir del menu Articulos");
 			op = Integer.parseInt(System.console().readLine());
 			// si la opcion no esta entre 1 y 3 se ejecuta una excepción
-			if ((op<1)||(op>3)) {
+			if ((op<1)||(op>5)) {
 				throw new Exception ("#La opción es invalida");
 			}
 		} catch (Exception e) {
@@ -28,8 +27,8 @@ public class VistaArticulo {
 		// devuelve la opcion
 		return op;
 	}
-	// Añadir Articulo
-	public Articulo nuevoArticulo() {
+	// Añadir Pedido
+	public Pedido nuevoped() {
 		/*System.out.println("Dame el código del articulo");
 		this.articul.setCodArticulo(System.console().readLine());
 		System.out.println("Escribe la descripción del articulo");
@@ -39,8 +38,7 @@ public class VistaArticulo {
 		System.out.println("¿Cuanto tempo tarda en prepararse?");
 		op = Integer.parseInt(System.console().readLine());
 		*/
-		return this.articul;
+		return this.ped;
 
 	}
-	
 }

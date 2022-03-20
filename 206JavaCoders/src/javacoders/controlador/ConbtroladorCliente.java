@@ -1,8 +1,9 @@
-package Controlador;
+package javacoders.controlador;
 
 import javax.swing.JOptionPane;
-import Modelo.*;
-import Vista.*;
+
+import javacoders.modelo.Cliente;
+import javacoders.vista.VistaCliente;
 
 
 public class ConbtroladorCliente {

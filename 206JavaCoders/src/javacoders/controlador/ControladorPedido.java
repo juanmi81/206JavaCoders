@@ -1,9 +1,9 @@
-package Controlador;
+package javacoders.controlador;
 
 import javax.swing.JOptionPane;
 
-import Modelo.Pedido;
-import Vista.VistaPedido;
+import javacoders.modelo.Pedido;
+import javacoders.vista.VistaPedido;
 
 public class ControladorPedido {
 	// Atributos

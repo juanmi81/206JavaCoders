@@ -1,12 +1,11 @@
-package Controlador;
+package javacoders.controlador;
 
 import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 
-import Modelo.*;
-import Vista.*;
-
-import java.util.ArrayList;
+import javacoders.modelo.Articulo;
+import javacoders.vista.VMenuPrincipal;
 // clase de menu princiapl, desde aqui se selecciona que vamos a gestionar
 public class ControlerMain {
 	

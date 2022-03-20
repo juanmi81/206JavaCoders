@@ -1,9 +1,9 @@
-package Controlador;
+package javacoders.controlador;
 
 import javax.swing.JOptionPane;
 
-import Modelo.*;
-import Vista.*;
+import javacoders.modelo.Articulo;
+import javacoders.vista.VistaArticulo;
 // clase controlador, para articulo
 public class ControladorArticulo {
 	// Atributos
