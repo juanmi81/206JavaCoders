@@ -36,15 +36,20 @@ public class ControlerMain {
 			op = menu.getOpcion();
 			switch (op) {
 				case 1:
-					//gestión clientes
-				
+					//gestion clientes
+					CCliente.iniciar();
 				case 2:
 					//Gestion Articulos
 					CArticulo.iniciar();
 				
 				case 3:
 					//Gestion Pedidos
-				
+					CPedido.iniciar();
+				case 4:
+					//fin de ejecución del programa
+					System.out.println(" Saliendo del programa ");
+					//esperar un tiempo
+					break;
 			default:
 				JOptionPane.showMessageDialog(null, "La opcion es incorrecta");
 			}
