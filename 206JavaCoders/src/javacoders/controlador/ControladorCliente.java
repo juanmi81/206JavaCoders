@@ -68,7 +68,26 @@ public class ControladorCliente {
 		}
 
 		private void verClientes() {
-			// TODO Auto-generated method stub
+			// variable lista de clientes, es lo que se va a mostrar por pantalla
+			String quieroLista;
+			// preguntaremos que opcion quiere el usuario, listar todos los clientes, los premium o los estandar
+			int op2 = 0;
+			op2 = vista.queLista();
+			// seleccionamos la opcion correcta y guardamos la lista en la variable quieroLista
+			switch (op2) {
+				case 1:
+					quieroLista = this.datos.toStringClientes();
+				case 2:
+					//solo clientes standar
+					quieroLista = "";
+				case 3:
+					//solo clientes premium
+					quieroLista = "";
+				default:
+					System.out.println(null, "La opcion es incorrecta");
+			}
+			// se envia a imprimir por pantalla la lista resultante
+			this.vista.verlista(quieroLista);
 			
 		}
 }
