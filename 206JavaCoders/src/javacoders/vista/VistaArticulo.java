@@ -1,13 +1,15 @@
 package javacoders.vista;
 
+import java.util.Scanner;
+
 import javacoders.modelo.Articulo;
 
 public class VistaArticulo {
 	
+	Scanner sc = new Scanner(System.in);
 	Articulo articul;
     
-    public VistaArticulo(Articulo articuloinstanciado) {
-        this.articul = articuloinstanciado;
+    public VistaArticulo() {
     }
 
  // visualización del menu articulos
@@ -15,7 +17,7 @@ public class VistaArticulo {
 		int op = 0;
 		try {
 			System.out.println("1. Agregar Articulo \n 2. Mostrar Articulo \n 3. Salir del menu Articulos");
-			op = Integer.parseInt(System.console().readLine());
+			op = sc.nextInt();
 			// si la opcion no esta entre 1 y 3 se ejecuta una excepción
 			if ((op<1)||(op>3)) {
 				throw new Exception ("#La opción es invalida");
@@ -23,6 +25,7 @@ public class VistaArticulo {
 		} catch (Exception e) {
 			// en caso de excepción se muestra el mensaje
 			System.out.println(e.getMessage());
+			e.printStackTrace();
 		}
 		// devuelve la opcion
 		return op;

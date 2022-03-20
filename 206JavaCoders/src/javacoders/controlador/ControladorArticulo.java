@@ -1,14 +1,24 @@
 package javacoders.controlador;
 
+import java.util.Scanner;
+
 import javax.swing.JOptionPane;
 
 import javacoders.modelo.Articulo;
+import javacoders.modelo.Datos;
 import javacoders.vista.VistaArticulo;
 // clase controlador, para articulo
 public class ControladorArticulo {
 	// Atributos
 	private Articulo modelo;
 	private VistaArticulo vista;
+	private Datos datos;
+	private Scanner sc = new Scanner(System.in);
+	
+	public ControladorArticulo() {
+		vista = new VistaArticulo();
+		datos = new Datos();
+	}
 	
 	// geter y seter de atributos
 	public Articulo getArticulo(Articulo art) {
@@ -55,8 +65,21 @@ public class ControladorArticulo {
 	}
 
 	private void nuevoArticulo() {
-		// TODO Auto-generated method stub
+		System.out.println("Inserte el cod");
+		String cod = sc.next();
+		System.out.println("Inserte el descripción");
+		String des = sc.next();
+		System.out.println("Inserte el pvp");
+		float pvp = sc.nextFloat();
+		System.out.println("Inserte el gastos");
+		float gastos = sc.nextFloat();
+		System.out.println("Inserte el tiempo de preparación");
+		int tiempoPre = sc.nextInt();
 		
+		Articulo art = new Articulo(cod, des, pvp, gastos, tiempoPre);
+		
+		datos.addArticulo(art);
+		System.out.println(datos);
 	}
 	
 	

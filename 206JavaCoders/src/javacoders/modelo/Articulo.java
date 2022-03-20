@@ -4,11 +4,11 @@ import java.util.Timer;
 
 public class Articulo {
 
-	private char codArticulo;
+	private String codArticulo;
 	private String descripcion;
 	private float pvp;
 	private float gastoEnvio;
-	private Timer tiempoPrep;
+	private int tiempoPrep;
 
 	/**
 	 * @param codArticulo
@@ -17,7 +17,7 @@ public class Articulo {
 	 * @param tiempoPrep
 	 */
 
-	public Articulo(char codArticulo, String descripcion, float pvp, float gastoEnvio, Timer tiempoPrep) {
+	public Articulo(String codArticulo, String descripcion, float pvp, float gastoEnvio, int tiempoPrep) {
 
 		this.codArticulo = codArticulo;
 		this.descripcion = descripcion;
@@ -27,26 +27,26 @@ public class Articulo {
 
 	}
 
-	/*public Articulo(char codArticulo, String descripcion, double pvp) {
-
-		this.codArticulo = codArticulo;
-		this.descripcion = descripcion;
-		this.pvp = pvp;
-
-	}
-
-	public Articulo(char codArticulo, String descripcion) {
-
-		this.codArticulo = codArticulo;
-		this.descripcion = descripcion;
-
-	}
-
-	public Articulo(char codArticulo) {
-
-		this.codArticulo = codArticulo;
-
-	}*/
+	/*
+	 * public Articulo(char codArticulo, String descripcion, double pvp) {
+	 * 
+	 * this.codArticulo = codArticulo; this.descripcion = descripcion; this.pvp =
+	 * pvp;
+	 * 
+	 * }
+	 * 
+	 * public Articulo(char codArticulo, String descripcion) {
+	 * 
+	 * this.codArticulo = codArticulo; this.descripcion = descripcion;
+	 * 
+	 * }
+	 * 
+	 * public Articulo(char codArticulo) {
+	 * 
+	 * this.codArticulo = codArticulo;
+	 * 
+	 * }
+	 */
 
 	public float getGastoEnvio() {
 		return gastoEnvio;
@@ -56,11 +56,11 @@ public class Articulo {
 		this.gastoEnvio = gastoEnvio;
 	}
 
-	public char getCodArticulo() {
+	public String getCodArticulo() {
 		return codArticulo;
 	}
 
-	public void setCodArticulo(char codArticulo) {
+	public void setCodArticulo(String codArticulo) {
 		this.codArticulo = codArticulo;
 	}
 
@@ -80,12 +80,25 @@ public class Articulo {
 		this.pvp = pvp;
 	}
 
-	public Timer getTiempoPrep() {
+	public int getTiempoPrep() {
 		return tiempoPrep;
 	}
 
-	public void setTiempoPrep(Timer tiempoPrep) {
+	public void setTiempoPrep(int tiempoPrep) {
 		this.tiempoPrep = tiempoPrep;
+	}
+
+	public boolean equals(Object obj) {
+		boolean eq = false;
+		if (obj instanceof Articulo) {
+			Articulo art = (Articulo) obj;
+
+			if (art.codArticulo.equals(codArticulo)) {
+				eq = true;
+			}
+		}
+
+		return eq;
 	}
 
 	@Override

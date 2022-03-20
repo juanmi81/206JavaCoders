@@ -3,13 +3,15 @@ package javacoders.controlador;
 import javax.swing.JOptionPane;
 
 import javacoders.modelo.Cliente;
+import javacoders.modelo.Datos;
 import javacoders.vista.VistaCliente;
 
 
-public class ConbtroladorCliente {
+public class ControladorCliente {
 	// Atributos
 		private Cliente modelo;
 		private VistaCliente vista;
+		private Datos datos;
 		
 		// geter y seter de atributos
 		public Cliente getCliente(Cliente cli) {

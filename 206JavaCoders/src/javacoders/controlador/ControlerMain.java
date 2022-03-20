@@ -15,6 +15,10 @@ public class ControlerMain {
 	ControladorArticulo CArticulo = new ControladorArticulo();
 	ArrayList<Articulo> art= new ArrayList<Articulo>();
 	
+	public ControlerMain() {
+		
+	}
+	
 	// metodo para el control del menu principal
 	public void iniciar() {
 	
@@ -39,5 +43,10 @@ public class ControlerMain {
 				JOptionPane.showMessageDialog(null, "La opcion es incorrecta");
 			}
 		};
+	}
+	
+	public static void main(String[] args) {
+		ControlerMain controlerMain = new ControlerMain();
+		controlerMain.iniciar();
 	}
 }

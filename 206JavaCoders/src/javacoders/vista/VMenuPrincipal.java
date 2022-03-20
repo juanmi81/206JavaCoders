@@ -7,7 +7,7 @@ public class VMenuPrincipal {
 	}
 	
 	public int getOpcion() {
-		int r = 0;
+		int r = 2;
 			
 		
 		return r;

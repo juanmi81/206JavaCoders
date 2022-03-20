@@ -2,6 +2,7 @@ package javacoders.controlador;
 
 import javax.swing.JOptionPane;
 
+import javacoders.modelo.Datos;
 import javacoders.modelo.Pedido;
 import javacoders.vista.VistaPedido;
 
@@ -9,6 +10,7 @@ public class ControladorPedido {
 	// Atributos
 			private Pedido modelo;
 			private VistaPedido vista;
+			private Datos datos;
 			
 			// geter y seter de atributos
 			public Pedido getPedido(Pedido ped) {
