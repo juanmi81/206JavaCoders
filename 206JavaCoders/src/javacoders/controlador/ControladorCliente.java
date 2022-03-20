@@ -34,7 +34,7 @@ public class ControladorCliente {
 		public void setVista(VistaCliente vista) {
 			this.vista = vista;
 		}
-		// visualización del menu clientes
+		// visualizaciÃ³n del menu clientes
 		public void iniciar() {
 			int op2 = 0;
 			// bucle de subprograma Clientes
@@ -42,7 +42,7 @@ public class ControladorCliente {
 				op2 = vista.getOpcion();
 				switch (op2) {
 					case 1:
-						//a�adir cliente
+						//añadir cliente
 						nuevoCliente();
 					case 2:
 						//Mostrar clientes, podra seleccionar entre todos, estandar o premium
@@ -57,7 +57,13 @@ public class ControladorCliente {
 		}
 
 		private void nuevoCliente() {
-			// TODO Auto-generated method stub
+			// llamamos a la vista para que nos pase los datos del cliente
+			this.vista.nuevoCliente();
+			/*
+			aqui va la lógica, hay que revisar que los datos sean correctos y que el mail no este repetido
+			*/
+			// llamamos al modelo para que inserte los datos del cliente
+			datos.addCliente(this.modelo);
 			
 		}
 
