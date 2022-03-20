@@ -26,19 +26,20 @@ public class VistaCliente {
 			// devuelve la opcion
 			return op;
 		}
-		// Añadir Articulo
+		// Añadir un cliente
 		public Cliente nuevoCliente() {
-			/*System.out.println("Dame el código del articulo");
-			this.articul.setCodArticulo(System.console().readLine());
-			System.out.println("Escribe la descripción del articulo");
-			op = Integer.parseInt(System.console().readLine());
-			System.out.println("¿Cual es el Precio Venta al Publico?");
-			op = Integer.parseInt(System.console().readLine());
-			System.out.println("¿Cuanto tempo tarda en prepararse?");
-			op = Integer.parseInt(System.console().readLine());
-			*/
+			// pedir los datos por pantalla y guardarlos en el atributo
+			// aqui se puede hacer una primera comprobación de los datos.
+			System.out.println("Inserte el correoElectrónico");
+			this.client.setEmail(sc.next());
+			System.out.println("Inserte el nombre");
+			this.client.setNombre(sc.next());
+			System.out.println("Inserte el domicilio");
+			this.client.setDomicilio(sc.next());
+			System.out.println("Inserte el nif");
+			this.client.setNif(sc.next());
+			// devolver el atributo
 			return this.client;
-
 		}
 
 		
