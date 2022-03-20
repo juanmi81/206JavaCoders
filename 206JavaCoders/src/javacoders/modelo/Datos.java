@@ -24,7 +24,11 @@ public class Datos {
 		// llamar al metodo correspondiente pasando los datos del cliente
 		listaClientes.addCliente(Cliente cliente)
 	}
-
+	// toString solo para la lista clientes
+	public String toStringClientes() {
+		return "Datos [listaClientes=" + listaClientes + "]";
+	}
+	
 	// ********* metodos y funciones de la Lista Pedidos **************
 	
 	
