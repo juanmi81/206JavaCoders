@@ -1,7 +1,5 @@
 package javacoders.modelo;
 
-import java.util.Timer;
-
 public class Articulo {
 
 	private String codArticulo;

@@ -10,7 +10,6 @@ import javacoders.vista.VistaArticulo;
 // clase controlador, para articulo
 public class ControladorArticulo {
 	// Atributos
-	private Articulo modelo;
 	private VistaArticulo vista;
 	private Datos datos;
 	private Scanner sc = new Scanner(System.in);
@@ -18,16 +17,6 @@ public class ControladorArticulo {
 	public ControladorArticulo() {
 		vista = new VistaArticulo();
 		datos = new Datos();
-	}
-	
-	// geter y seter de atributos
-	public Articulo getArticulo(Articulo art) {
-		return modelo;
-	}
-	
-	public void setArticulo(Articulo art) {
-		
-		
 	}
 
 	public VistaArticulo getVista(Articulo art) {
@@ -45,7 +34,7 @@ public class ControladorArticulo {
 			op2 = vista.getOpcion();
 			switch (op2) {
 				case 1:
-					//aÃ±adir articulo
+					//añadir articulo
 					nuevoArticulo();
 				case 2:
 					//ver articulo
