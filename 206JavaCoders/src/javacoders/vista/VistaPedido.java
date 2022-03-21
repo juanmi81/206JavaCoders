@@ -27,18 +27,25 @@ public class VistaPedido {
 		// devuelve la opcion
 		return op;
 	}
-	// Añadir Pedido
-	public Pedido nuevoped() {
-		/*System.out.println("Dame el código del articulo");
-		this.articul.setCodArticulo(System.console().readLine());
-		System.out.println("Escribe la descripción del articulo");
-		op = Integer.parseInt(System.console().readLine());
-		System.out.println("¿Cual es el Precio Venta al Publico?");
-		op = Integer.parseInt(System.console().readLine());
-		System.out.println("¿Cuanto tempo tarda en prepararse?");
-		op = Integer.parseInt(System.console().readLine());
-		*/
-		return this.ped;
-
+	// ----------------------------- Añadir Pedido -------------------------------------------------------------------
+	// pedir codigo del producto y devuelve un string ----------------------------------------
+	public String NPpedirArticulo() {
+		System.out.println("Dame el codig del producto que quieres pedir");
+		return (sc.next());
+	}
+	// pedir el mail del cliente para saber si existe -----------------------------------------
+	public String NPpedirCliente() {
+		System.out.println("Dame el mail del cliente");
+		return (sc.next());
+	}
+	// pedir el resto de datos  ----------------------------------------------------------------
+	public void nuevoPedido() {
+		// TODO Auto-generated method stub
+		System.out.println("Inserte el codigo del pedido");
+		this.ped.setnPedido(sc.next());
+		System.out.println("Inserte la cantidad");
+		this.ped.setCantArticulo(Integer.parseInt(sc.next()));
+		ped.setFechaHora(LocalDateTime.now());
+		ped.setEnviado(false);
 	}
 }
