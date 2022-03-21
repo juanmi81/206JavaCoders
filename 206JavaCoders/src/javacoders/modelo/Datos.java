@@ -16,7 +16,11 @@ public class Datos {
 	public void addArticulo(Articulo articulo) {
 		listaArticulos.addArticulo(articulo);
 	}
-	
+	// busca un articulo y lo devuelve
+	public Articulo buscarArticulo(Articulo art) {
+		return listaArticulos.existe(art);
+	}
+
 	
 	// ********* metodos y funciones de la Lista Clientes **************
 	// añadir un cliente
@@ -28,10 +32,15 @@ public class Datos {
 	public String toStringClientes() {
 		return "Datos [listaClientes=" + listaClientes + "]";
 	}
-	
+	// busca un cliente y lo devuelve
+	public Cliente buscarCliente(Cliente b) {
+		return listaClientes.existe(b);
+	}		
 	// ********* metodos y funciones de la Lista Pedidos **************
-	
-	
+	// añadir un pedido	
+	public void addPedido(Pedido pedido) {
+		listaPedido.addPedido(pedido);
+	}
 	// ********* otros metodos y funciones ****************************
 	@Override
 	public String toString() {
