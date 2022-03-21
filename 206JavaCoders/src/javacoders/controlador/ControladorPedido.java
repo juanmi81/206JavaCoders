@@ -33,7 +33,7 @@ public class ControladorPedido {
 			public void setPedido(VistaPedido vista) {
 				this.vista = vista;
 			}
-			// visualización del menu Pedido
+			// visualizaciÃ³n del menu Pedido
 			public void iniciar() {
 				int op2 = 0;
 				// bucle de subprograma Pedido
@@ -41,7 +41,7 @@ public class ControladorPedido {
 					op2 = vista.getOpcion();
 					switch (op2) {
 						case 1:
-							//a�adir Pedido
+							//añadir Pedido
 							nuevoPedido();
 						case 2:
 							//Eliminar Pedido
@@ -62,8 +62,36 @@ public class ControladorPedido {
 			}
 
 			private void nuevoPedido() {
-				// TODO Auto-generated method stub
 				
+				// articulo del pedido -----------------------------------
+				String codarticulo = vista.NPpedirArticulo();
+				// buscar articulo
+				Articulo a = new Articulo(codarticulo,"", 0, 0, 0);
+				a.setCodArticulo(codarticulo);
+				a = datos.buscarArticulo(a);
+				// si el articulo no existe
+				if (a == null ) {
+					System.out.println("el codigo no existe");
+					return;
+				}
+				
+				// cliente del pedido --------------------------------------
+				String codcliente = vista.NPpedirCliente();
+				// si existe producto
+				
+				Cliente b = null ;
+				b.setEmail(codcliente);
+				b = datos.buscarCliente(b);
+				if (b == null ) {
+					System.out.println("el cliente no existe, vamos a crear un nuevo cliente");
+					// crear nuevo cliente
+				}
+				// resto de datos --------------------------------------------
+				this.vista.nuevoPedido();
+				this.modelo.setCliente(b);
+				this.modelo.setArticulo(a);
+				// guardar los datos
+				datos.addPedido(this.modelo);
 			}
 
 			private void eliminarPedido() {
