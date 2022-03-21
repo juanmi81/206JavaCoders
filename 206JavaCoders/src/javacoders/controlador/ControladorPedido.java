@@ -69,7 +69,7 @@ public class ControladorPedido {
 				Articulo a = new Articulo(codarticulo,"", 0, 0, 0);
 				a.setCodArticulo(codarticulo);
 				a = datos.buscarArticulo(a);
-				// si el articulo no existe
+				// si el articulo no existe se acaba la rutina
 				if (a == null ) {
 					System.out.println("el codigo no existe");
 					return;
@@ -77,14 +77,14 @@ public class ControladorPedido {
 				
 				// cliente del pedido --------------------------------------
 				String codcliente = vista.NPpedirCliente();
-				// si existe producto
-				
+				// se guarda en un objeto cliente
 				Cliente b = null ;
 				b.setEmail(codcliente);
 				b = datos.buscarCliente(b);
+				// si el cliente no existe
 				if (b == null ) {
 					System.out.println("el cliente no existe, vamos a crear un nuevo cliente");
-					// crear nuevo cliente
+					// crear nuevo cliente  ????????????????????????
 				}
 				// resto de datos --------------------------------------------
 				this.vista.nuevoPedido();
