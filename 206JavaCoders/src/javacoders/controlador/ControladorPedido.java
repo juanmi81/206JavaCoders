@@ -96,18 +96,24 @@ public class ControladorPedido {
 
 			private void eliminarPedido() {
 				// pedir codpedido
-				String codarticulo = vista.NPpedirArticulo();
+				String codpedido = vista.EPpedir();
 				// buscar pedido
-				Articulo a = new Articulo(codarticulo,"", 0, 0, 0);
-				a.setCodArticulo(codarticulo);
-				a = datos.buscarArticulo(a);
+				Pedido c = new Pedido(codpedido,null,null,0,null);
+				c = datos.buscarPedido(c);
 				// si el articulo no existe se acaba la rutina
-				if (a == null ) {
-					System.out.println("el codigo no existe");
+				if (c == null ) {
+					System.out.println("el pedido no existe");
 					return;
 				}
 				// si se puede se elimina
-				
+				LocalDateTime time = c.getFechaHora().plusHours(c.getArticulo().getTiempoPrep());
+				if (time.isBefore(LocalDateTime.now())) {
+					this.datos.eliminarPedido(c);
+				}
+				else {
+					System.out.println("el pedido no se puede eliminar, esta fuera de plazo");
+					return;
+				}
 			}
 
 			private void mostrarPendientes() {
