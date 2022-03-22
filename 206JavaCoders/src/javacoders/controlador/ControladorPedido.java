@@ -95,17 +95,36 @@ public class ControladorPedido {
 			}
 
 			private void eliminarPedido() {
-				// TODO Auto-generated method stub
+				// pedir codpedido
+				String codarticulo = vista.NPpedirArticulo();
+				// buscar pedido
+				Articulo a = new Articulo(codarticulo,"", 0, 0, 0);
+				a.setCodArticulo(codarticulo);
+				a = datos.buscarArticulo(a);
+				// si el articulo no existe se acaba la rutina
+				if (a == null ) {
+					System.out.println("el codigo no existe");
+					return;
+				}
+				// si se puede se elimina
 				
 			}
 
 			private void mostrarPendientes() {
-				// TODO Auto-generated method stub
+				// filtrar lista, pedir cliente o no
+				
+				// crear lista 
+				
+				//mostrar lista
 				
 			}
 
 			private void mostrarEnviados() {
-				// TODO Auto-generated method stub
+				// filtrar lista, pedir cliente o no
+				
+				// crear lista 
+				
+				//mostrar lista
 				
 			}
 			
