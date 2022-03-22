@@ -9,10 +9,10 @@ public class Pedido {
 	private Cliente cliente;
 	private Articulo articulo;
 	private int cantArticulo;
-	private Date fechaHora;
+	private LocalDateTime fechaHora;
 	private boolean enviado;
 
-	public Pedido(String nPedido, Cliente cliente, Articulo articulo, int cantArticulo, Date fechaHora) {
+	public Pedido(String nPedido, Cliente cliente, Articulo articulo, int cantArticulo, LocalDateTime fechaHora) {
 		this.nPedido = nPedido;
 		this.cliente = cliente;
 		this.articulo = articulo;
@@ -79,7 +79,7 @@ public class Pedido {
 		return fechaHora;
 	}
 
-	public void setFechaHora(Date fechaHora) {
+	public void setFechaHora(LocalDateTime fechaHora) {
 		this.fechaHora = fechaHora;
 	}
 
@@ -87,6 +87,10 @@ public class Pedido {
 		return enviado;
 	}
 
+	public void setEnviado(boolean b) {	
+		this.enviado = b;
+	}
+	
 	public float precioEnvio() {
 		float gastosEnvio = articulo.getGastoEnvio();
 		float precioEnvio = gastosEnvio;
@@ -115,8 +119,8 @@ public class Pedido {
 		pedidoStr += "\nFecha: " + sf.format(fechaHora);
 		pedidoStr += "\nNif: " + cliente.getNif();
 		pedidoStr += "\nNombre: " + cliente.getNombre();
-		pedidoStr += "\nCódigo: " + articulo.getCodArticulo();
-		pedidoStr += "\nDescripción: " + articulo.getDescripcion();
+		pedidoStr += "\nCÃ³digo: " + articulo.getCodArticulo();
+		pedidoStr += "\nDescripciÃ³n: " + articulo.getDescripcion();
 		pedidoStr += "\nCantidad: " + cantArticulo;
 		pedidoStr += "\nPrecio unitario: " + pvp;
 		pedidoStr += "\nPrecio total: " + precioTotal;
