@@ -48,4 +48,10 @@ public class VistaPedido {
 		ped.setFechaHora(LocalDateTime.now());
 		ped.setEnviado(false);
 	}
+	
+	// -------------------------------  Eliminar pedido ----------------------------------------------------------------
+	public String EPpedir() {
+		System.out.println("Dame el codigo del pedido a eliminar");
+		return (sc.next());
+	}
 }
