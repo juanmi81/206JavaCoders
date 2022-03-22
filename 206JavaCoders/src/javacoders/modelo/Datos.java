@@ -41,6 +41,15 @@ public class Datos {
 	public void addPedido(Pedido pedido) {
 		listaPedido.addPedido(pedido);
 	}
+	// buscar pedido
+	public Pedido buscarPedido(Pedido c) {
+		return listaPedido.existe(c);
+	}
+	// eliminar pedido
+	public void eliminarPedido(Pedido c) {
+		listaPedido.eliminarPedido(c);
+	}
+	
 	// ********* otros metodos y funciones ****************************
 	@Override
 	public String toString() {
