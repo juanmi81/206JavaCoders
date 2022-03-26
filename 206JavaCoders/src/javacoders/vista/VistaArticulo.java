@@ -44,5 +44,8 @@ public class VistaArticulo {
 		return this.articul;
 
 	}
-	
+	public void verArticulo() {
+		// llamar a la funcion
+		System.out.println(this.nuevoArticulo().toString());
+	}
 }
