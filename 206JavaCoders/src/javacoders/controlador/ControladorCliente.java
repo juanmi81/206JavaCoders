@@ -55,15 +55,46 @@ public class ControladorCliente {
 				}
 			};
 		}
-
-		private void nuevoCliente() {
-			// llamamos a la vista para que nos pase los datos del cliente
-			this.vista.nuevoCliente();
-			/*
-			aqui va la lógica, hay que revisar que los datos sean correctos y que el mail no este repetido
-			*/
-			// llamamos al modelo para que inserte los datos del cliente
-			datos.addCliente(this.modelo);
+		// --------------------------------------------------------   Funciones de nuevo cliente -------------------------------------
+		public void nuevoCliente() {
+			
+			// TODO Auto-generated method stub
+			
+			int op2 = this.vista.nuevoCliente();
+			this.vista.datosCliente();
+			switch (op2) {
+				case 1:
+					//nuevo cliente estandar
+					Premium cliente = new Premium (this.modelo.getEmail(),this.modelo.getNombre(),this.modelo.getDomicilio(),this.modelo.getNif() );
+					datos.addCliente(cliente);
+				case 2:
+					//Nuevo cliente premium
+					Estandar cliente2 = new Estandar(this.modelo.getEmail(),this.modelo.getNombre(),this.modelo.getDomicilio(),this.modelo.getNif());
+					datos.addCliente(cliente2);
+				case 3:
+					//cancelar nuevo cliente
+					break;
+			}
+		}
+		// funcion sobrecargada de nuevo cliente
+		public void nuevoCliente(String mail) {
+			
+			// TODO Auto-generated method stub
+			int op2 = this.vista.nuevoCliente();
+			this.vista.datosCliente(mail);
+			switch (op2) {
+				case 1:
+					//nuevo cliente estandar
+					Premium cliente = new Premium (mail,this.modelo.getNombre(),this.modelo.getDomicilio(),this.modelo.getNif() );
+					datos.addCliente(cliente);
+				case 2:
+					//Nuevo cliente premium
+					Estandar cliente2 = new Estandar(mail,this.modelo.getNombre(),this.modelo.getDomicilio(),this.modelo.getNif() );
+					datos.addCliente(cliente2);
+				case 3:
+					//cancelar nuevo cliente
+					break;
+			}
 			
 		}
 
