@@ -43,20 +43,24 @@ public class ControladorPedido {
 						case 1:
 							//añadir Pedido
 							nuevoPedido();
+							break;
 						case 2:
 							//Eliminar Pedido
 							eliminarPedido();
+							break;
 						case 3:
 							//Mostrar pedidos pendientes
 							mostrarPendientes();
+							break;
 						case 4:
 							//Mostrar pedidos entregados
 							mostrarEnviados();
+							break;
 						case 5:
 							//fin del subprograma Pedido
 							break;
 					default:
-						JOptionPane.showMessageDialog(null, "La opcion es incorrecta");
+						System.out.println("La opcion es incorrecta");
 					}
 				};
 			}
