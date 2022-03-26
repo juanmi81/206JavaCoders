@@ -2,13 +2,15 @@ package javacoders.vista;
 
 public class VMenuPrincipal {
 
+	Scanner sc = new Scanner(System.in);
+		
 	public VMenuPrincipal() {
 		
 	}
 	
 	public int getOpcion() {
 		int op = 0;
-		try (Scanner sc = new Scanner(System.in)){
+		try {
 			System.out.println(" 1. Gestión de Clientes \n 2. Gestión de Artículos \n 3. Gestión de Pedidos \n 4. Salir del programa");
 			op = sc.nextInt();
 			// si la opcion no esta entre 1 y 3 se ejecuta una excepciÃ³n
