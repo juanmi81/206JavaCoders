@@ -28,14 +28,14 @@ public class VistaCliente {
 		}
 	// -----------------------------------------------Añadir un cliente ----------------------------------------------------
 	// que tipo de cliente
-	public int nuevoCliente() {
+		public int nuevoCliente() {
 			int op = 0;
-			while (op > 2 && op < 1) {
+			while (op > 2 || op < 1) {
 				System.out.println("que tipo de cliente: \n 1 standar \n 2 premium \n 3 cancelar");
-				op =  Integer.parseInt(System.console().readLine());
-				if (op == 2) {
+				op =  sc.nextInt();
+				if (op == 1) {
 					System.out.println("Crear cliente estandar");
-				}else if (op == 1) {
+				}else if (op == 2) {
 					System.out.println("Crear cliente premium");
 				}else if (op == 3) {
 					System.out.println("salir");
@@ -44,33 +44,30 @@ public class VistaCliente {
 			}
 			return op;
 		}
-	// pedir datos de cliente
-		public void datosCliente() {
+		// añadir los datos del cliente
+		public String damemail() {
 			System.out.println("Inserte el correoElectrónico");
-			this.client.setEmail(sc.next());
-			System.out.println("Inserte el nombre");
-			this.client.setNombre(sc.next());
-			System.out.println("Inserte el domicilio");
-			this.client.setDomicilio(sc.next());
-			System.out.println("Inserte el nif");
-			this.client.setNif(sc.next());
-			
+			return sc.next();
 		}
-	// pedir datos de cliente sobrecargada
-		public void datosCliente(String mail) {
-			this.client.setEmail(mail);
+		public String damenombre() {
 			System.out.println("Inserte el nombre");
-			this.client.setNombre(sc.next());
-			System.out.println("Inserte el domicilio");
-			this.client.setDomicilio(sc.next());
-			System.out.println("Inserte el nif");
-			this.client.setNif(sc.next());
+			return sc.next();
 		}
-	
+		public String damenif() {
+			System.out.println("Inserte el NIF");
+			return sc.next();
+		}
+		public String damedomicilio() {
+			String salto = sc.nextLine();
+			System.out.println("Inserte el domicilio");
+			return sc.nextLine();
+		}
+	// --------------------------- mostrar clientes ---------------------------------------------
+	// que quieres ver? todos, premium o estandar?
 	public int queLista() {
 		int op = 0;
 		try {
-			System.out.println("1. Mostrar todos los clientes \n 2. Mostrar clientes estandar \n 3. Mostrar clientes premium");
+			System.out.println("1. Mostrar todos los clientes \n 2. Mostrar clientes estandar \n 3. Mostrar clientes premium\n");
 			op = Integer.parseInt(System.console().readLine());
 			// si la opcion no esta entre 1 y 3 se ejecuta una excepciÃ³n
 			if ((op<1)||(op>3)) {
