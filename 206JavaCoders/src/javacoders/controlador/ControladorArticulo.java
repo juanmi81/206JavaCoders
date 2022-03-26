@@ -26,7 +26,7 @@ public class ControladorArticulo {
 	public void setVista(VistaArticulo vista) {
 		this.vista = vista;
 	}
-	// visualización del menu articulos
+	// visualizaciÃ³n del menu articulos
 	public void iniciar() {
 		int op2 = 0;
 		// bucle de subprograma articulos
@@ -34,7 +34,7 @@ public class ControladorArticulo {
 			op2 = vista.getOpcion();
 			switch (op2) {
 				case 1:
-					//a�adir articulo
+					//añadir articulo
 					nuevoArticulo();
 				case 2:
 					//ver articulo
@@ -49,20 +49,20 @@ public class ControladorArticulo {
 	}
 
 	private void verArticulo() {
-		// TODO Auto-generated method stub
-		
+		// llamar a la vista 
+		this.vista.verArticulo();
 	}
 
 	private void nuevoArticulo() {
 		System.out.println("Inserte el cod");
 		String cod = sc.next();
-		System.out.println("Inserte el descripci�n");
+		System.out.println("Inserte el descripción");
 		String des = sc.next();
 		System.out.println("Inserte el pvp");
 		float pvp = sc.nextFloat();
 		System.out.println("Inserte el gastos");
 		float gastos = sc.nextFloat();
-		System.out.println("Inserte el tiempo de preparaci�n");
+		System.out.println("Inserte el tiempo de preparación");
 		int tiempoPre = sc.nextInt();
 		
 		Articulo art = new Articulo(cod, des, pvp, gastos, tiempoPre);
