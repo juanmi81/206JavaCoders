@@ -95,17 +95,22 @@ public class ControladorPedido {
 			
 			// funcion para buscar un cliente, si no existe crea uno nuevo
 			public Cliente buscacliente() {
+				// pedimos el mail o codigo del cliente
 				String codcliente = vista.NPpedirCliente();
-				// si existe producto
-			
-				Cliente b = new Cliente (codcliente, "", "", "") ;
-				b.setEmail(codcliente);
-				b = datos.buscarCliente(b);
-				if (b == null ) {
+				// guardamos la información en la variable correspondiente
+				this.modelo.getCliente().setEmail(codcliente);
+				// buscamos el cliente
+				this.modelo.setCliente(datos.buscarCliente(this.modelo.getCliente()));
+				// si no existe hay que crearlo ---------------------------------------------------------
+				if (this.modelo.getCliente() == null ) {
 					System.out.println("el cliente no existe, vamos a crear un nuevo cliente");
 					// crear nuevo cliente
+					ControladorCliente control = new ControladorCliente(this.datos);
+					control.nuevoCliente(codcliente);
+					// una vez creado hay que devolver el cliente.
+					this.modelo.setCliente(control.getCliente());
 				}
-				return b;
+				return this.modelo.getCliente();
 			}
 
 			private void eliminarPedido() {
