@@ -36,11 +36,11 @@ public class ControladorCliente {
 		}
 		// visualizaciÃ³n del menu clientes
 		public void iniciar() {
-			int op2 = 0;
+			int opcli = 0;
 			// bucle de subprograma Clientes
-			while (op2 != 3) {
-				op2 = vista.getOpcion();
-				switch (op2) {
+			while (opcli != 3) {
+				opcli = vista.getOpcion();
+				switch (opcli) {
 					case 1:
 						//añadir cliente
 						nuevoCliente();
@@ -51,54 +51,67 @@ public class ControladorCliente {
 						break;
 					case 3:
 						//fin del subprograma Clientes
+						System.out.println("saliendo de la gestion de clientes");
 						break;
 				default:
 					System.out.println("La opcion es incorrecta");
 				}
 			};
 		}
-		// --------------------------------------------------------   Funciones de nuevo cliente -------------------------------------
+// ---------------------------------- nuevo cliente ---------------------------------------------------------------------
 		public void nuevoCliente() {
 			
-			// TODO Auto-generated method stub
-			
+			// que tipo de cliente
 			int op2 = this.vista.nuevoCliente();
-			this.vista.datosCliente();
-			switch (op2) {
-				case 1:
-					//nuevo cliente estandar
-					Premium cliente = new Premium (this.modelo.getEmail(),this.modelo.getNombre(),this.modelo.getDomicilio(),this.modelo.getNif() );
-					datos.addCliente(cliente);
-				case 2:
-					//Nuevo cliente premium
-					Estandar cliente2 = new Estandar(this.modelo.getEmail(),this.modelo.getNombre(),this.modelo.getDomicilio(),this.modelo.getNif());
-					datos.addCliente(cliente2);
-				case 3:
-					//cancelar nuevo cliente
-					break;
+			if (op2 != 3) {
+				switch (op2) {
+					case 1:
+						//nuevo cliente estandar
+						this.modelo = new Estandar(null,null,null,null);
+						break;
+					case 2:
+						//Nuevo cliente premium
+						modelo = new Premium(null,null,null,null);
+						break;
+				}
+				// datos del cliente
+				this.modelo.setEmail(this.vista.damemail());
+				this.modelo.setNombre(this.vista.damenombre());
+				this.modelo.setDomicilio(this.vista.damedomicilio());
+				this.modelo.setNif(this.vista.damenif());
+				// añadir a la lista
+				datos.addCliente(this.modelo);
+			}else System.out.println("Salir sin crear nuevo cliente");
+		}
+		// nuevo cliente sobrecargado
+		public void nuevoCliente(String mail) {
+			//que tipo de cliente
+			int op2 = this.vista.nuevoCliente();
+			if (op2 != 3) {
+				switch (op2) {
+					case 1:
+						//nuevo cliente estandar
+						this.modelo = new Estandar(null,null,null,null);
+						break;
+					case 2:
+						//Nuevo cliente premium
+						modelo = new Premium(null,null,null,null);
+						break;
+				}
+				// datos del cliente
+				this.modelo.setEmail(mail);
+				this.modelo.setEmail(this.vista.damenombre());
+				this.modelo.setEmail(this.vista.damedomicilio());
+				this.modelo.setEmail(this.vista.damenif());
+				System.out.println(this.modelo);
+				// añadir cliente a la lista
+				datos.addCliente(this.modelo);
 			}
+			// si se cancela ...
+			else System.out.println("Salir sin crear nuevo cliente");
+			
 		}
 		// funcion sobrecargada de nuevo cliente
-		public void nuevoCliente(String mail) {
-			
-			// TODO Auto-generated method stub
-			int op2 = this.vista.nuevoCliente();
-			this.vista.datosCliente(mail);
-			switch (op2) {
-				case 1:
-					//nuevo cliente estandar
-					Premium cliente = new Premium (mail,this.modelo.getNombre(),this.modelo.getDomicilio(),this.modelo.getNif() );
-					datos.addCliente(cliente);
-				case 2:
-					//Nuevo cliente premium
-					Estandar cliente2 = new Estandar(mail,this.modelo.getNombre(),this.modelo.getDomicilio(),this.modelo.getNif() );
-					datos.addCliente(cliente2);
-				case 3:
-					//cancelar nuevo cliente
-					break;
-			}
-			
-		}
 
 		private void verClientes() {
 			// variable lista de clientes, es lo que se va a mostrar por pantalla
