@@ -4,7 +4,7 @@ public class Premium extends Cliente {
 	private static final float CUOTA = 30;
 	private static final float DESCUENTO = 20;
 	
-	public Premium(String email, String nombre, String domicilio, String nif, Double cuota, Double descuentoEnvio) {
+	public Premium(String email, String nombre, String domicilio, String nif) {
 		super(email, nombre, domicilio, nif);
 
 	}
