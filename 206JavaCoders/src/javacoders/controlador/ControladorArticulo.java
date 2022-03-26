@@ -36,14 +36,16 @@ public class ControladorArticulo {
 				case 1:
 					//añadir articulo
 					nuevoArticulo();
+					break;
 				case 2:
 					//ver articulo
 					verArticulo();
+					break;
 				case 3:
 					// salir del menu articulo
 					break;
 			default:
-				JOptionPane.showMessageDialog(null, "La opcion es incorrecta");
+				System.out.println("La opcion es incorrecta");
 			}
 		};
 	}
