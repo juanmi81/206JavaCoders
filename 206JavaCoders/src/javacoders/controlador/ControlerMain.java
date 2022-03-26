@@ -38,13 +38,15 @@ public class ControlerMain {
 				case 1:
 					//gestion clientes
 					CCliente.iniciar();
+					break;
 				case 2:
 					//Gestion Articulos
 					CArticulo.iniciar();
-				
+					break;
 				case 3:
 					//Gestion Pedidos
 					CPedido.iniciar();
+					break;
 				case 4:
 					//fin de ejecución del programa
 					System.out.println(" Saliendo del programa ");
