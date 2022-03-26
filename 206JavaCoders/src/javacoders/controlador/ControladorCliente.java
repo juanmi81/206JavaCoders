@@ -44,14 +44,16 @@ public class ControladorCliente {
 					case 1:
 						//añadir cliente
 						nuevoCliente();
+						break;
 					case 2:
 						//Mostrar clientes, podra seleccionar entre todos, estandar o premium
 						verClientes();
+						break;
 					case 3:
 						//fin del subprograma Clientes
 						break;
 				default:
-					JOptionPane.showMessageDialog(null, "La opcion es incorrecta");
+					System.out.println("La opcion es incorrecta");
 				}
 			};
 		}
