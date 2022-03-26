@@ -64,34 +64,48 @@ public class ControladorPedido {
 			private void nuevoPedido() {
 				
 				// articulo del pedido -----------------------------------
+				Articulo art = buscaarticulo();
+				// si el articulo no existe
+				if (art != null ) {
+				
+					// cliente del pedido --------------------------------------
+					Cliente cli = buscacliente();
+					// resto de datos --------------------------------------------
+					this.vista.nuevoPedido();
+					this.modelo.setCliente(cli);
+					this.modelo.setArticulo(art);
+					// guardar los datos
+					datos.addPedido(this.modelo);
+				}
+			}
+	
+			// función para buscar un articulo
+			public Articulo buscaarticulo() {
 				String codarticulo = vista.NPpedirArticulo();
 				// buscar articulo
 				Articulo a = new Articulo(codarticulo,"", 0, 0, 0);
-				a.setCodArticulo(codarticulo);
 				a = datos.buscarArticulo(a);
-				// si el articulo no existe se acaba la rutina
+				// si el articulo no existe
 				if (a == null ) {
 					System.out.println("el codigo no existe");
-					return;
+					return a;
 				}
-				
-				// cliente del pedido --------------------------------------
+				return a;
+			}
+			
+			// funcion para buscar un cliente, si no existe crea uno nuevo
+			public Cliente buscacliente() {
 				String codcliente = vista.NPpedirCliente();
-				// se guarda en un objeto cliente
-				Cliente b = null ;
+				// si existe producto
+			
+				Cliente b = new Cliente (codcliente, "", "", "") ;
 				b.setEmail(codcliente);
 				b = datos.buscarCliente(b);
-				// si el cliente no existe
 				if (b == null ) {
 					System.out.println("el cliente no existe, vamos a crear un nuevo cliente");
-					// crear nuevo cliente  ????????????????????????
+					// crear nuevo cliente
 				}
-				// resto de datos --------------------------------------------
-				this.vista.nuevoPedido();
-				this.modelo.setCliente(b);
-				this.modelo.setArticulo(a);
-				// guardar los datos
-				datos.addPedido(this.modelo);
+				return b;
 			}
 
 			private void eliminarPedido() {
