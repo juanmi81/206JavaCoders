@@ -26,21 +26,46 @@ public class VistaCliente {
 			// devuelve la opcion
 			return op;
 		}
-	// Añadir un cliente
-	public Cliente nuevoCliente() {
-		// pedir los datos por pantalla y guardarlos en el atributo
-		// aqui se puede hacer una primera comprobación de los datos.
-		System.out.println("Inserte el correoElectrónico");
-		this.client.setEmail(sc.next());
-		System.out.println("Inserte el nombre");
-		this.client.setNombre(sc.next());
-		System.out.println("Inserte el domicilio");
-		this.client.setDomicilio(sc.next());
-		System.out.println("Inserte el nif");
-		this.client.setNif(sc.next());
-		// devolver el atributo
-		return this.client;
-	}
+	// -----------------------------------------------Añadir un cliente ----------------------------------------------------
+	// que tipo de cliente
+	public int nuevoCliente() {
+			int op = 0;
+			while (op > 2 && op < 1) {
+				System.out.println("que tipo de cliente: \n 1 standar \n 2 premium \n 3 cancelar");
+				op =  Integer.parseInt(System.console().readLine());
+				if (op == 2) {
+					System.out.println("Crear cliente estandar");
+				}else if (op == 1) {
+					System.out.println("Crear cliente premium");
+				}else if (op == 3) {
+					System.out.println("salir");
+					break;
+				}else System.out.println("opcion incorrecta");
+			}
+			return op;
+		}
+	// pedir datos de cliente
+		public void datosCliente() {
+			System.out.println("Inserte el correoElectrónico");
+			this.client.setEmail(sc.next());
+			System.out.println("Inserte el nombre");
+			this.client.setNombre(sc.next());
+			System.out.println("Inserte el domicilio");
+			this.client.setDomicilio(sc.next());
+			System.out.println("Inserte el nif");
+			this.client.setNif(sc.next());
+			
+		}
+	// pedir datos de cliente sobrecargada
+		public void datosCliente(String mail) {
+			this.client.setEmail(mail);
+			System.out.println("Inserte el nombre");
+			this.client.setNombre(sc.next());
+			System.out.println("Inserte el domicilio");
+			this.client.setDomicilio(sc.next());
+			System.out.println("Inserte el nif");
+			this.client.setNif(sc.next());
+		}
 	
 	public int queLista() {
 		int op = 0;
