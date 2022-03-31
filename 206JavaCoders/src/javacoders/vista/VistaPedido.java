@@ -54,4 +54,18 @@ public class VistaPedido {
 		System.out.println("Dame el codigo del pedido a eliminar");
 		return (sc.next());
 	}
+	
+	// ------------------------------- Ver listas de pedidos ----------------------------------------------------------
+	public String MPcliente() {
+		String cod = null;
+		System.out.println("Si quieres filtrar por cliente dame el mail del cliente");
+		cod = sc.next();
+		if (cod == "") return null;
+		else return cod;
+	}
+
+	public void verlista(String listamostrar) {
+			// Lista de pedidos, esta funcion es indiferente a que tipo de lista, pedidos pendientes, enviados o filtrados
+		System.out.println(listamostrar);
+	}
 }
