@@ -113,6 +113,7 @@ public class ControladorCliente {
 		}
 		// funcion sobrecargada de nuevo cliente
 
+	// -------------------------------------- Ver clientes, clientes estandar y clientes premium ---------------------------------------------------/
 		private void verClientes() {
 			// variable lista de clientes, es lo que se va a mostrar por pantalla
 			String quieroLista;
@@ -125,10 +126,12 @@ public class ControladorCliente {
 					quieroLista = this.datos.toStringClientes();
 				case 2:
 					//solo clientes standar
-					quieroLista = "";
+					quieroLista = this.datos.toStringEstandar();
+					break;
 				case 3:
 					//solo clientes premium
-					quieroLista = "";
+					quieroLista = this.datos.toStringPremium();
+					break;
 				default:
 					System.out.println(null, "La opcion es incorrecta");
 			}
