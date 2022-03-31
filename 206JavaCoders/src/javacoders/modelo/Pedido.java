@@ -128,5 +128,9 @@ public class Pedido {
 
 		return pedidoStr;
 	}
-
+	// devuelve cierto si el pedido esta pendiente de envio, se calcula por fecha y tiempo de preparación
+	public boolean pendiente() {
+		LocalDateTime time = this.getFechaHora().plusHours(this.getArticulo().getTiempoPrep());
+		return time.isBefore(LocalDateTime.now());
+	}
 }
