@@ -80,14 +80,10 @@ public class VistaCliente {
 		// devuelve la opcion
 		return op;
 	}
-
-	public void verlista(String quieroLista) {
-		// Lista de clientes, este metodo es indiferente a que tipo de lista, todos, premium o estandar
-		// para formatearlo se modificaría en lugar de utilizar el toString se utilizaria un toArray por ejemplo
-		
-		System.out.println(quieroLista);
-		
-	}
+// --------------------   imprime por pantalla, para indicar un error, fin del programa, o los datos solicitados ...
+		public void imprimir(String salida) {
+			System.out.println(salida);
+		}
 
 		
 }
