@@ -43,9 +43,8 @@ public class ControladorArticulo {
 					break;
 				case 3:
 					// salir del menu articulo
+					vista.fingestion();
 					break;
-			default:
-				System.out.println("La opcion es incorrecta");
 			}
 		};
 	}
@@ -54,23 +53,10 @@ public class ControladorArticulo {
 		// llamar a la vista 
 		this.vista.verArticulo();
 	}
-
+// ------------------------------ nuevo articulo ---------------------------------------
 	private void nuevoArticulo() {
-		System.out.println("Inserte el cod");
-		String cod = sc.next();
-		System.out.println("Inserte el descripción");
-		String des = sc.next();
-		System.out.println("Inserte el pvp");
-		float pvp = sc.nextFloat();
-		System.out.println("Inserte el gastos");
-		float gastos = sc.nextFloat();
-		System.out.println("Inserte el tiempo de preparación");
-		int tiempoPre = sc.nextInt();
-		
-		Articulo art = new Articulo(cod, des, pvp, gastos, tiempoPre);
-		
-		datos.addArticulo(art);
-		System.out.println(datos);
+		Articulo art = new Articulo(vista.damecodigo(), vista.damedescripcion(), vista.damepvp(), vista.damegastosdeenvio(), vista.dametiempopreparaion());
+		this.datos.addArticulo(art);
 	}
 	
 	
