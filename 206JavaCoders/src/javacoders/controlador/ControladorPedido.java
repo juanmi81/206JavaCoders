@@ -127,9 +127,9 @@ public class ControladorPedido {
 					return;
 				}
 				// si se puede se elimina
-				LocalDateTime time = c.getFechaHora().plusHours(c.getArticulo().getTiempoPrep());
-				if (time.isBefore(LocalDateTime.now())) {
+				if (c.pendiente()) {
 					this.datos.eliminarPedido(c);
+					vista.imprimir("el pedido se ha eliminado");
 				}
 				else {
 					vista.imprimir("el pedido no se puede eliminar, esta fuera de plazo");
@@ -142,8 +142,23 @@ public class ControladorPedido {
 				String listamostrar;
 				String codcli = vista.MPcliente();
 				// crear lista 
-				if (codcli == null) listamostrar = this.datos.mostrarpendientes();
-				else listamostrar = this.datos.mostrarpendientes(codcli);
+				if (codcli == null) {
+					listamostrar = this.datos.mostrarpendientes();
+				}
+				else {
+					// guardamos la información en la variable correspondiente
+					this.modelo.getCliente().setEmail(codcli);
+					// buscamos el cliente
+					this.modelo.setCliente(datos.buscarCliente(this.modelo.getCliente()));
+					// si no existe fin de la funcion ---------------------------------------------------------
+					if (this.modelo.getCliente() == null ) {
+						vista.imprimir("el cliente no existe");
+						listamostrar = null;
+					}
+					else {
+						listamostrar = this.datos.mostrarpendientes(this.modelo.getCliente());
+					}
+				}
 				//mostrar lista
 				vista.imprimir(listamostrar);
 			}
@@ -153,10 +168,22 @@ public class ControladorPedido {
 				String codcli = vista.MPcliente();
 				// crear lista 
 				if (codcli == null) listamostrar = this.datos.mostrarenviados();
-				else listamostrar = this.datos.mostrarenviados(codcli);
+				else{
+					// guardamos la información en la variable correspondiente
+					this.modelo.getCliente().setEmail(codcli);
+					// buscamos el cliente
+					this.modelo.setCliente(datos.buscarCliente(this.modelo.getCliente()));
+					// si no existe fin de la funcion ---------------------------------------------------------
+					if (this.modelo.getCliente() == null ) {
+						vista.imprimir("el cliente no existe");
+						listamostrar = null;
+					}
+					else {
+						listamostrar = this.datos.mostrarenviados(this.modelo.getCliente());
+					}
+				}
 				//mostrar lista
 				vista.imprimir(listamostrar);
 			}
-			
 			
 }
