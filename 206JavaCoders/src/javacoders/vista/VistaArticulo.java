@@ -30,22 +30,35 @@ public class VistaArticulo {
 		// devuelve la opcion
 		return op;
 	}
-	// Añadir Articulo
-	public Articulo nuevoArticulo() {
-		/*System.out.println("Dame el código del articulo");
-		this.articul.setCodArticulo(System.console().readLine());
-		System.out.println("Escribe la descripción del articulo");
-		op = Integer.parseInt(System.console().readLine());
-		System.out.println("¿Cual es el Precio Venta al Publico?");
-		op = Integer.parseInt(System.console().readLine());
-		System.out.println("¿Cuanto tempo tarda en prepararse?");
-		op = Integer.parseInt(System.console().readLine());
-		*/
-		return this.articul;
-
+		// nuevo Articulo
+	public String damedescripcion() {
+		System.out.println("Inserte la descripcion del articulo");
+		return sc.nextLine();
 	}
+	public String damecodigo() {
+		System.out.println("Inserte el codigo del articulo");
+		return sc.next();
+	}
+	public Float damepvp() {
+		System.out.println("Inserte el pvp");
+		return sc.nextFloat();
+	}
+	public Float damegastosdeenvio() {
+		System.out.println("Inserte los gastos de envio");
+		return sc.nextFloat();
+	}
+	public int dametiempopreparaion() {
+		System.out.println("Inserte el tiempo de preparación");
+		return sc.nextInt();
+	}
+	// ver articulo
 	public void verArticulo() {
 		// llamar a la funcion
-		System.out.println(this.nuevoArticulo().toString());
+		System.out.println(this.articul);
 	}
+// OP = 3 FIN DE GESTION
+	public void fingestion() {
+		System.out.println("saliendo de la gestion de articulos");
+	}
+	
 }
