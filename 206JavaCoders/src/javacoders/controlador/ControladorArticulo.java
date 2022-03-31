@@ -1,9 +1,5 @@
 package javacoders.controlador;
 
-import java.util.Scanner;
-
-import javax.swing.JOptionPane;
-
 import javacoders.modelo.Articulo;
 import javacoders.modelo.Datos;
 import javacoders.vista.VistaArticulo;
