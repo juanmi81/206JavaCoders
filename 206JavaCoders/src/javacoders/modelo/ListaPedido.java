@@ -25,48 +25,45 @@ public class ListaPedido extends Lista<Pedido> {
 		String pendent= "";
 		for (Pedido tmp: this.lista) {
 			// si el pedido esta pendiente
-			if () {
+			if (tmp.pendiente()) {
 				pendent += tmp.toString();
 			} 
 		}
 		return pendent;
 	}
 	// mostrar pendientes filtrado por cliente
-	public String pendiente(String codcli) {
+	public String pendiente(Cliente cliente) {
 		String pendent= "";
 		for (Pedido tmp: this.lista) {
 			// si el pedido es del cliente
-			if () {
+			if (tmp.getCliente().equals(cliente)) {
 				// si el pedido esta pendiente
-				if() {	
+				if(tmp.pendiente()) {	
 				pendent += tmp.toString();
 				}
 			} 
 		}
 		return pendent;
 	}
-	// mostrar enviados
+	// mostra enviados
 	public String enviados() {
 		String envio= "";
 		for (Pedido tmp: this.lista) {
-			// si el pedido es del cliente
-			if () {
 				// si el pedido esta pendiente
-				if() {	
+				if(!tmp.pendiente()) {	
 				envio += tmp.toString();
-				}
-			} 
+				} 
 		}
 		return envio;
 	}
-	// mostrar enviados filtrado por cliente
-	public String enviados(String codcli) {
+	// mostrar enviados filtrados por cliente
+	public String enviados(Cliente cliente) {
 		String envio= "";
 		for (Pedido tmp: this.lista) {
 			// si el pedido es del cliente
-			if () {
+			if (tmp.getCliente().equals(cliente)) {
 				// si el pedido esta pendiente
-				if() {	
+				if(!tmp.pendiente()) {
 				envio += tmp.toString();
 				}
 			} 
