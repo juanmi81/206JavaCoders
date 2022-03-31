@@ -16,4 +16,24 @@ public class ListaClientes extends Lista<Cliente> {
 		}
 		else return null;
 	}
+	// listado de clientes premium
+	public String VerPremium() {
+		String premium = "";
+		for (Cliente tmp: this.lista) {
+			if (tmp instanceof Premium) {
+				premium += tmp.toString();
+			} 
+		}
+		return premium;
+	}
+	// listado de clientes estandar
+	public String VerEstandar() {
+		String estandar = "";
+		for (Cliente tmp: this.lista) {
+			if (tmp instanceof Estandar) {
+				estandar += tmp.toString();
+			} 
+		}
+		return estandar;
+	}
 }
