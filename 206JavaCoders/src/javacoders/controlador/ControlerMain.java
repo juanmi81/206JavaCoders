@@ -49,11 +49,8 @@ public class ControlerMain {
 					break;
 				case 4:
 					//fin de ejecución del programa
-					System.out.println(" Saliendo del programa ");
-					//esperar un tiempo
+					menu.OPfinal();
 					break;
-			default:
-				JOptionPane.showMessageDialog(null, "La opcion es incorrecta");
 			}
 		};
 	}
