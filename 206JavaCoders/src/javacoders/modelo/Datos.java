@@ -61,16 +61,15 @@ public class Datos {
 		return listaPedido.pendiente();
 	}
 	// mostrar pedidos pendientes filtrado por cliente
-	public String mostrarpendientes(String codcli) {
-		return listaPedido.pendiente(codcli);
+	public String mostrarpendientes(Cliente cliente) {
+		return listaPedido.pendiente(cliente);
 	}
 	// mostrar pedidos enviados
 	public String mostrarenviados() {
 		return listaPedido.enviados();
 	}
-	// mostrar pedidos enviados filtrado por cliente
-	public String mostrarenviados(String codcli) {
-		return listaPedido.enviados(codcli);
+	public String mostrarenviados(Cliente cliente) {
+		return listaPedido.enviados(cliente);
 	}
 	
 	// ********* otros metodos y funciones ****************************
