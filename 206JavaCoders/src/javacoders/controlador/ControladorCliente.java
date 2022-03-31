@@ -51,10 +51,8 @@ public class ControladorCliente {
 						break;
 					case 3:
 						//fin del subprograma Clientes
-						System.out.println("saliendo de la gestion de clientes");
+						vista.imprimir("Salir de la gestion de clientes");
 						break;
-				default:
-					System.out.println("La opcion es incorrecta");
 				}
 			};
 		}
@@ -108,7 +106,7 @@ public class ControladorCliente {
 				datos.addCliente(this.modelo);
 			}
 			// si se cancela ...
-			else System.out.println("Salir sin crear nuevo cliente");
+			else vista.imprimir("Salir sin crear nuevo cliente");
 			
 		}
 		// funcion sobrecargada de nuevo cliente
@@ -133,10 +131,10 @@ public class ControladorCliente {
 					quieroLista = this.datos.toStringPremium();
 					break;
 				default:
-					System.out.println(null, "La opcion es incorrecta");
+					vista.imprimir("La opcion es incorrecta");
 			}
 			// se envia a imprimir por pantalla la lista resultante
-			this.vista.verlista(quieroLista);
+			this.vista.imprimir(quieroLista);
 			
 		}
 }
