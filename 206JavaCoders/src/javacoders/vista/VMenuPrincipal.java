@@ -25,6 +25,9 @@ public class VMenuPrincipal {
 		// devuelve la opcion
 		return op;
 	}
-
+	// OP = 4 final
+	public void OPfinal() {
+		System.out.println("Fin del programa");
+	}
 	
 }
