@@ -141,20 +141,23 @@ public class ControladorPedido {
 
 			private void mostrarPendientes() {
 				// filtrar lista, pedir cliente o no
-				
+				String listamostrar;
+				String codcli = vista.MPcliente();
 				// crear lista 
-				
+				if (codcli == null) listamostrar = this.datos.mostrarpendientes();
+				else listamostrar = this.datos.mostrarpendientes(codcli);
 				//mostrar lista
-				
+				this.vista.verlista(listamostrar);
 			}
 
 			private void mostrarEnviados() {
-				// filtrar lista, pedir cliente o no
-				
+				String listamostrar;
+				String codcli = vista.MPcliente();
 				// crear lista 
-				
+				if (codcli == null) listamostrar = this.datos.mostrarenviados();
+				else listamostrar = this.datos.mostrarenviados(codcli);
 				//mostrar lista
-				
+				this.vista.verlista(listamostrar);
 			}
 			
 			
