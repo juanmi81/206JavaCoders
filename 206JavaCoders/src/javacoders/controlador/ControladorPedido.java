@@ -1,7 +1,5 @@
 package javacoders.controlador;
 
-import javax.swing.JOptionPane;
-
 import javacoders.modelo.Datos;
 import javacoders.modelo.Pedido;
 import javacoders.vista.VistaPedido;
@@ -60,7 +58,7 @@ public class ControladorPedido {
 							//fin del subprograma Pedido
 							break;
 					default:
-						System.out.println("La opcion es incorrecta");
+						vista.imprimir("La opcion es incorrecta");
 					}
 				};
 			}
@@ -91,7 +89,7 @@ public class ControladorPedido {
 				a = datos.buscarArticulo(a);
 				// si el articulo no existe
 				if (a == null ) {
-					System.out.println("el codigo no existe");
+					vista.imprimir("el codigo no existe");
 					return a;
 				}
 				return a;
@@ -107,7 +105,7 @@ public class ControladorPedido {
 				this.modelo.setCliente(datos.buscarCliente(this.modelo.getCliente()));
 				// si no existe hay que crearlo ---------------------------------------------------------
 				if (this.modelo.getCliente() == null ) {
-					System.out.println("el cliente no existe, vamos a crear un nuevo cliente");
+					vista.imprimir("el cliente no existe, vamos a crear un nuevo cliente");
 					// crear nuevo cliente
 					ControladorCliente control = new ControladorCliente(this.datos);
 					control.nuevoCliente(codcliente);
@@ -125,7 +123,7 @@ public class ControladorPedido {
 				c = datos.buscarPedido(c);
 				// si el articulo no existe se acaba la rutina
 				if (c == null ) {
-					System.out.println("el pedido no existe");
+					vista.imprimir("el pedido no existe");
 					return;
 				}
 				// si se puede se elimina
@@ -134,7 +132,7 @@ public class ControladorPedido {
 					this.datos.eliminarPedido(c);
 				}
 				else {
-					System.out.println("el pedido no se puede eliminar, esta fuera de plazo");
+					vista.imprimir("el pedido no se puede eliminar, esta fuera de plazo");
 					return;
 				}
 			}
@@ -147,7 +145,7 @@ public class ControladorPedido {
 				if (codcli == null) listamostrar = this.datos.mostrarpendientes();
 				else listamostrar = this.datos.mostrarpendientes(codcli);
 				//mostrar lista
-				this.vista.verlista(listamostrar);
+				vista.imprimir(listamostrar);
 			}
 
 			private void mostrarEnviados() {
@@ -157,7 +155,7 @@ public class ControladorPedido {
 				if (codcli == null) listamostrar = this.datos.mostrarenviados();
 				else listamostrar = this.datos.mostrarenviados(codcli);
 				//mostrar lista
-				this.vista.verlista(listamostrar);
+				vista.imprimir(listamostrar);
 			}
 			
 			
