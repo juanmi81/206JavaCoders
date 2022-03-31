@@ -63,9 +63,9 @@ public class VistaPedido {
 		if (cod == "") return null;
 		else return cod;
 	}
-
-	public void verlista(String listamostrar) {
-			// Lista de pedidos, esta funcion es indiferente a que tipo de lista, pedidos pendientes, enviados o filtrados
-		System.out.println(listamostrar);
-	}
+	 // ------------------------- ------------------------------------- -------------------------------------------------
+	// imprime por pantalla, para indicar un error, fin del programa, o los datos solicitados ...
+			public void imprimir(String salida) {
+				System.out.println(salida);
+			}
 }
