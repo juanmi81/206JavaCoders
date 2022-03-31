@@ -56,6 +56,22 @@ public class Datos {
 	public void eliminarPedido(Pedido c) {
 		listaPedido.eliminarPedido(c);
 	}
+	// mostrar todos los pedidos pendientes
+	public String mostrarpendientes() {
+		return listaPedido.pendiente();
+	}
+	// mostrar pedidos pendientes filtrado por cliente
+	public String mostrarpendientes(String codcli) {
+		return listaPedido.pendiente(codcli);
+	}
+	// mostrar pedidos enviados
+	public String mostrarenviados() {
+		return listaPedido.enviados();
+	}
+	// mostrar pedidos enviados filtrado por cliente
+	public String mostrarenviados(String codcli) {
+		return listaPedido.enviados(codcli);
+	}
 	
 	// ********* otros metodos y funciones ****************************
 	@Override
