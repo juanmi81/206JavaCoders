@@ -31,11 +31,18 @@ public class Datos {
 	// toString solo para la lista clientes
 	public String toStringClientes() {
 		return "Datos [listaClientes=" + listaClientes + "]";
+	}		
+	// toString solo de clientes estandar
+	public String toStringEstandar() {
+		return listaClientes.VerEstandar();
 	}
+	// toString solo de clientes premium
+	public String toStringPremium() {
+		return listaClientes.VerPremium();	
 	// busca un cliente y lo devuelve
 	public Cliente buscarCliente(Cliente b) {
 		return listaClientes.existe(b);
-	}		
+	}
 	// ********* metodos y funciones de la Lista Pedidos **************
 	// añadir un pedido	
 	public void addPedido(Pedido pedido) {
