@@ -1,10 +1,5 @@
 package javacoders.controlador;
 
-import java.util.ArrayList;
-
-import javax.swing.JOptionPane;
-
-import javacoders.modelo.Articulo;
 import javacoders.modelo.Datos;
 import javacoders.vista.VMenuPrincipal;
 // clase de menu princiapl, desde aqui se selecciona que vamos a gestionar

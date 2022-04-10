@@ -4,4 +4,5 @@ module javacoders {
 	exports javacoders.vista;
 
 	requires java.desktop;
+	requires java.sql;
 }
