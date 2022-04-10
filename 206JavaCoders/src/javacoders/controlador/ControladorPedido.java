@@ -1,5 +1,7 @@
 package javacoders.controlador;
 
+import javacoders.modelo.Articulo;
+import javacoders.modelo.Cliente;
 import javacoders.modelo.Datos;
 import javacoders.modelo.Pedido;
 import javacoders.vista.VistaPedido;

@@ -26,7 +26,7 @@ public class Datos {
 	// añadir un cliente
 	public void addCliente(Cliente cliente) {
 		// llamar al metodo correspondiente pasando los datos del cliente
-		listaClientes.addCliente(cliente)
+		listaClientes.addCliente(cliente);
 	}
 	// toString solo para la lista clientes
 	public String toStringClientes() {
@@ -38,7 +38,8 @@ public class Datos {
 	}
 	// toString solo de clientes premium
 	public String toStringPremium() {
-		return listaClientes.VerPremium();	
+		return listaClientes.VerPremium();
+	}
 	// busca un cliente y lo devuelve
 	public Cliente buscarCliente(Cliente b) {
 		return listaClientes.existe(b);

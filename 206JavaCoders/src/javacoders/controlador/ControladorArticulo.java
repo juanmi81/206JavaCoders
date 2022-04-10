@@ -1,5 +1,6 @@
 package javacoders.controlador;
 
+
 import javacoders.modelo.Articulo;
 import javacoders.modelo.Datos;
 import javacoders.vista.VistaArticulo;
@@ -8,7 +9,6 @@ public class ControladorArticulo {
 	// Atributos
 	private VistaArticulo vista;
 	private Datos datos;
-	private Scanner sc = new Scanner(System.in);
 	
 	public ControladorArticulo(Datos datos) {
 		vista = new VistaArticulo();
@@ -54,6 +54,7 @@ public class ControladorArticulo {
 		Articulo art = new Articulo(vista.damecodigo(), vista.damedescripcion(), vista.damepvp(), vista.damegastosdeenvio(), vista.dametiempopreparaion());
 		this.datos.addArticulo(art);
 	}
+
 	
 	
 }

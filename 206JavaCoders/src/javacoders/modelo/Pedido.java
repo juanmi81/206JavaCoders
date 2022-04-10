@@ -1,7 +1,7 @@
 package javacoders.modelo;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class Pedido {
 
@@ -75,7 +75,7 @@ public class Pedido {
 		this.cantArticulo = cantArticulo;
 	}
 
-	public Date getFechaHora() {
+	public LocalDateTime getFechaHora() {
 		return fechaHora;
 	}
 

@@ -1,9 +1,10 @@
 package javacoders.vista;
-
+import java.time.LocalDateTime;
+import java.util.Scanner;
 import javacoders.modelo.Pedido;
 
 public class VistaPedido {
-
+	Scanner sc = new Scanner(System.in);
 	Pedido ped;
 	
 	public VistaPedido(Pedido pedidoinstanciado) {

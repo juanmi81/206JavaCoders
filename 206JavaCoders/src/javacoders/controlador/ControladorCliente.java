@@ -1,9 +1,9 @@
 package javacoders.controlador;
 
-import javax.swing.JOptionPane;
-
 import javacoders.modelo.Cliente;
 import javacoders.modelo.Datos;
+import javacoders.modelo.Estandar;
+import javacoders.modelo.Premium;
 import javacoders.vista.VistaCliente;
 
 
@@ -19,6 +19,9 @@ public class ControladorCliente {
 		
 		// geter y seter de atributos
 		public Cliente getCliente(Cliente cli) {
+			return modelo;
+		}
+		public Cliente getCliente() {
 			return modelo;
 		}
 		
@@ -114,7 +117,7 @@ public class ControladorCliente {
 	// -------------------------------------- Ver clientes, clientes estandar y clientes premium ---------------------------------------------------/
 		private void verClientes() {
 			// variable lista de clientes, es lo que se va a mostrar por pantalla
-			String quieroLista;
+			String quieroLista="";
 			// preguntaremos que opcion quiere el usuario, listar todos los clientes, los premium o los estandar
 			int op2 = 0;
 			op2 = vista.queLista();
@@ -134,7 +137,6 @@ public class ControladorCliente {
 					vista.imprimir("La opcion es incorrecta");
 			}
 			// se envia a imprimir por pantalla la lista resultante
-			this.vista.imprimir(quieroLista);
-			
+			this.vista.imprimir(quieroLista);	
 		}
 }

@@ -1,5 +1,7 @@
 package javacoders.vista;
 
+import java.util.Scanner;
+
 public class VMenuPrincipal {
 
 	Scanner sc = new Scanner(System.in);

@@ -1,8 +1,10 @@
 package javacoders.vista;
+import java.util.Scanner;
 
 import javacoders.modelo.Cliente;
 
 public class VistaCliente {
+	Scanner sc = new Scanner(System.in);
 	Cliente client;
 	
 	 public VistaCliente(Cliente clienteinstanciado) {
