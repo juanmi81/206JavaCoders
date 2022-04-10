@@ -69,6 +69,24 @@ LOCK TABLES `clinete` WRITE;
 /*!40000 ALTER TABLE `clinete` ENABLE KEYS */;
 UNLOCK TABLES;
 
+DROP TABLE IF EXISTS `premium`;
+CREATE TABLE `premium` (
+  `Cliente` varchar(100) NOT NULL,
+  `cuota`  float,
+  `descuento`  float,
+  PRIMARY KEY (`Cliente`),
+  CONSTRAINT `Clienteid` FOREIGN KEY (`Cliente`) REFERENCES `cliente` (`Email`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+DROP TABLE IF EXISTS `estandar`;
+CREATE TABLE `estandar` (
+  `Cliente` varchar(100) NOT NULL,
+  PRIMARY KEY (`Cliente`),
+  CONSTRAINT `Cliente_id` FOREIGN KEY (`Cliente`) REFERENCES `cliente` (`Email`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+
+
 --
 -- Table structure for table `pedido`
 --
