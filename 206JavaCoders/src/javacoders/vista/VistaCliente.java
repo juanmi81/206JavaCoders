@@ -7,16 +7,16 @@ public class VistaCliente {
 	Scanner sc = new Scanner(System.in);
 	Cliente client;
 	
-	 public VistaCliente(Cliente clienteinstanciado) {
-	        this.client = clienteinstanciado;
-	    }
+	 public VistaCliente() {
+	       
+	 }
 
 	 // visualizaci贸n del menu articulos
 	 public int getOpcion() {
 			int op = 0;
 			try {
-				System.out.println("1. Agregar Cliente \n 2. Mostrar Clientes \n 3. Salir del menu Articulos");
-				op = Integer.parseInt(System.console().readLine());
+				System.out.println(" 1. Agregar Cliente \n 2. Mostrar Clientes \n 3. Salir del menu Articulos");
+				op = sc.nextInt();
 				// si la opcion no esta entre 1 y 3 se ejecuta una excepci贸n
 				if ((op<1)||(op>3)) {
 					throw new Exception ("#La opci贸n es invalida");
@@ -48,7 +48,7 @@ public class VistaCliente {
 		}
 		// a帽adir los datos del cliente
 		public String damemail() {
-			System.out.println("Inserte el correoElectr贸nico");
+			System.out.println("Inserte el correoElectr髇ico");
 			return sc.next();
 		}
 		public String damenombre() {
@@ -70,10 +70,10 @@ public class VistaCliente {
 		int op = 0;
 		try {
 			System.out.println("1. Mostrar todos los clientes \n 2. Mostrar clientes estandar \n 3. Mostrar clientes premium\n");
-			op = Integer.parseInt(System.console().readLine());
+			op = sc.nextInt();
 			// si la opcion no esta entre 1 y 3 se ejecuta una excepci脙鲁n
 			if ((op<1)||(op>3)) {
-				throw new Exception ("#La opci脙鲁n es invalida");
+				throw new Exception ("#La opci髇 es invalida");
 			}
 		} catch (Exception e) {
 			// en caso de excepci脙鲁n se muestra el mensaje
