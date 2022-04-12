@@ -1,10 +1,13 @@
 package javacoders.controlador;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import DAO.ClienteDAO;
 import DAO.Factory;
 import DAO.FactoryDAO;
+import exception.ClientException;
 import javacoders.modelo.Cliente;
 import javacoders.modelo.Datos;
 import javacoders.modelo.Estandar;
@@ -97,8 +100,9 @@ public class ControladorCliente {
 			try {
 				clienteDAO.addCliente(modelo);
 			} catch (SQLException e) {
-				System.err.println("Error al insertar el cliente");
-				e.printStackTrace();
+				System.err.println("Error al insertar el cliente " + e.getMessage());
+			} catch (ClientException e) {
+				System.err.println(e.getMessage());
 			}
 		} else
 			System.out.println("Salir sin crear nuevo cliente");
@@ -138,29 +142,40 @@ public class ControladorCliente {
 	// -------------------------------------- Ver clientes, clientes estandar y
 	// clientes premium ---------------------------------------------------/
 	private void verClientes() {
+		List<Cliente> lstCliente = new ArrayList();
 		// variable lista de clientes, es lo que se va a mostrar por pantalla
-		String quieroLista = "";
+		// String quieroLista = "";
 		// preguntaremos que opcion quiere el usuario, listar todos los clientes, los
 		// premium o los estandar
 		int op2 = 0;
 		op2 = vista.queLista();
-		// seleccionamos la opcion correcta y guardamos la lista en la variable
-		// quieroLista
-		switch (op2) {
-		case 1:
-			quieroLista = this.datos.toStringClientes();
-		case 2:
-			// solo clientes standar
-			quieroLista = this.datos.toStringEstandar();
-			break;
-		case 3:
-			// solo clientes premium
-			quieroLista = this.datos.toStringPremium();
-			break;
-		default:
-			vista.imprimir("La opcion es incorrecta");
+
+		try {
+			// seleccionamos la opcion correcta y guardamos la lista en la variable
+			// quieroLista
+			switch (op2) {
+			case 1:
+				lstCliente = clienteDAO.findAll();
+				break;
+				// quieroLista = this.datos.toStringClientes();
+			case 2:
+				// solo clientes standar
+				lstCliente = clienteDAO.findByType(false);
+				// quieroLista = this.datos.toStringEstandar();
+				break;
+			case 3:
+				// solo clientes premium
+				lstCliente = clienteDAO.findByType(true);
+				// quieroLista = this.datos.toStringPremium();
+				break;
+			default:
+				vista.imprimir("La opcion es incorrecta");
+			}
+			// se envia a imprimir por pantalla la lista resultante
+			this.vista.imprimir(lstCliente);
+		} catch (Exception e) {
+			System.err.println("Erro al listar los clientes");
+			e.printStackTrace();
 		}
-		// se envia a imprimir por pantalla la lista resultante
-		this.vista.imprimir(quieroLista);
 	}
 }
