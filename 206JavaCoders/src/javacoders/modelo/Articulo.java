@@ -1,4 +1,7 @@
 package javacoders.modelo;
+import java.sql.SQLException;
+
+import javacoders.DAO.conexion;
 
 public class Articulo {
 
@@ -8,6 +11,7 @@ public class Articulo {
 	private float gastoEnvio;
 	private int tiempoPrep;
 
+	private conexion qc = new conexion();
 	/**
 	 * @param codArticulo
 	 * @param descripcion
@@ -22,29 +26,7 @@ public class Articulo {
 		this.pvp = pvp;
 		this.gastoEnvio = gastoEnvio;
 		this.tiempoPrep = tiempoPrep;
-
 	}
-
-	/*
-	 * public Articulo(char codArticulo, String descripcion, double pvp) {
-	 * 
-	 * this.codArticulo = codArticulo; this.descripcion = descripcion; this.pvp =
-	 * pvp;
-	 * 
-	 * }
-	 * 
-	 * public Articulo(char codArticulo, String descripcion) {
-	 * 
-	 * this.codArticulo = codArticulo; this.descripcion = descripcion;
-	 * 
-	 * }
-	 * 
-	 * public Articulo(char codArticulo) {
-	 * 
-	 * this.codArticulo = codArticulo;
-	 * 
-	 * }
-	 */
 
 	public float getGastoEnvio() {
 		return gastoEnvio;
@@ -101,7 +83,15 @@ public class Articulo {
 
 	@Override
 	public String toString() {
-		return "Articulo [codArticulo=" + codArticulo + ", descripcion=" + descripcion + ", pvp=" + pvp
-				+ ", tiempoPrep=" + tiempoPrep + "]";
+		return "Articulo [codArticulo=" + codArticulo + ", descripcion=" + descripcion + ", pvp=" + pvp + ", tiempoPrep=" + tiempoPrep + "]";
 	}
+
+	
+	// DAO parte de la base de datos
+	public void addArticulo() throws SQLException {
+			String query = "INSERT INTO db_producto3.artículo (Descripción, PVP, GastosEnvio, TiempoPrep) VALUES (" + descripcion + "," + pvp + "," + gastoEnvio+"," + tiempoPrep +");";
+			qc.setQuery(query);
+	}
+	
+	
 }

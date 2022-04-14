@@ -1,4 +1,5 @@
-package DAO;
+package javacoders.DAO;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -6,9 +7,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class conexion {
-	private static final String Controlador = "com.mysql.jdbc.Connection";
+	private static final String Controlador = "com.mysql.cj.jdbc.Driver";
 	private static final String URL = "jdbc:mysql://localhost:3306/db_producto3";
-	private static final String User = "juanmi";
+	private static final String User = "alumno";
 	private static final String Pass = "javacoders";
 	private Connection conn = null;
 	
@@ -57,16 +58,23 @@ public class conexion {
 	  * Modificacion a la Base de Datos.
 	  * @param _query
 	  */
-	 public void setQuery(String _query) {
-	  Statement state = null;
-	  
-	  try {
-	   state=(Statement) conn.createStatement();
-	   state.execute(_query);
+	 public void setQuery(String _query) throws SQLException {
+		 conectar();
+		 if (conn != null) {
+			 Statement state = null;
+			 try {
+				 state=(Statement) conn.createStatement();
+				 state.execute(_query);
+			 } catch (SQLException e) {
+					 e.printStackTrace();
+			 }
+			 
+		 }
+		 close();
+	}
 
-	         } catch (SQLException e) {
-	            e.printStackTrace();
-	       }
-	 }
+	public void close() throws SQLException {
+		conn.close();
+	}
 
 }

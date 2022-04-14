@@ -2,6 +2,8 @@ package javacoders.controlador;
 
 import javacoders.modelo.Datos;
 import javacoders.vista.VMenuPrincipal;
+
+
 // clase de menu princiapl, desde aqui se selecciona que vamos a gestionar
 public class ControlerMain {
 	
@@ -51,6 +53,7 @@ public class ControlerMain {
 	}
 	
 	public static void main(String[] args) {
+		
 		ControlerMain controlerMain = new ControlerMain();
 		controlerMain.iniciar();
 	}

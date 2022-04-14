@@ -1,6 +1,9 @@
 package javacoders.controlador;
 
 
+import java.sql.SQLException;
+
+import javacoders.DAO.Datos_DAO;
 import javacoders.modelo.Articulo;
 import javacoders.modelo.Datos;
 import javacoders.vista.VistaArticulo;
@@ -8,9 +11,9 @@ import javacoders.vista.VistaArticulo;
 public class ControladorArticulo {
 	// Atributos
 	private VistaArticulo vista;
-	private Datos datos;
+	private Datos_DAO datos;
 	
-	public ControladorArticulo(Datos datos) {
+	public ControladorArticulo(Datos_DAO datos) {
 		vista = new VistaArticulo();
 		this.datos = datos;
 	}
@@ -23,7 +26,7 @@ public class ControladorArticulo {
 		this.vista = vista;
 	}
 	// visualizaciÃ³n del menu articulos
-	public void iniciar() {
+	public void iniciar() throws SQLException {
 		int op2 = 0;
 		// bucle de subprograma articulos
 		while (op2 != 3) {
@@ -50,7 +53,7 @@ public class ControladorArticulo {
 		this.vista.verArticulo();
 	}
 // ------------------------------ nuevo articulo ---------------------------------------
-	private void nuevoArticulo() {
+	private void nuevoArticulo() throws SQLException {
 		Articulo art = new Articulo(vista.damecodigo(), vista.damedescripcion(), vista.damepvp(), vista.damegastosdeenvio(), vista.dametiempopreparaion());
 		this.datos.addArticulo(art);
 	}

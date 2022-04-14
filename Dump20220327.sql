@@ -44,13 +44,13 @@ LOCK TABLES `artículo` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `clinete`
+-- Table structure for table `cliente`
 --
 
-DROP TABLE IF EXISTS `clinete`;
+DROP TABLE IF EXISTS `cliente`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `clinete` (
+CREATE TABLE `cliente` (
   `Email` varchar(100) NOT NULL,
   `NIF` varchar(9) NOT NULL,
   `Nombre` varchar(100) NOT NULL,
@@ -61,12 +61,12 @@ CREATE TABLE `clinete` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `clinete`
+-- Dumping data for table `cliente`
 --
 
 LOCK TABLES `clinete` WRITE;
-/*!40000 ALTER TABLE `clinete` DISABLE KEYS */;
-/*!40000 ALTER TABLE `clinete` ENABLE KEYS */;
+/*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -86,7 +86,7 @@ CREATE TABLE `pedido` (
   KEY `Cliente_idx` (`Cliente`),
   KEY `Articulo_idx` (`Articulo`),
   CONSTRAINT `ArticuloCod` FOREIGN KEY (`Articulo`) REFERENCES `artículo` (`codArticulo`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `ClienteEMail` FOREIGN KEY (`Cliente`) REFERENCES `clinete` (`NIF`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `ClienteEMail` FOREIGN KEY (`Cliente`) REFERENCES `cliente` (`Email`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -102,6 +102,20 @@ UNLOCK TABLES;
 --
 -- Dumping events for database 'db_producto3'
 --
+DROP TABLE IF EXISTS `premium`;
+CREATE TABLE `premium` (
+  `Cliente` varchar(100) NOT NULL,
+  `cuota`  float,
+  `descuento`  float,
+  PRIMARY KEY (`Cliente`),
+  CONSTRAINT `Clienteid` FOREIGN KEY (`Cliente`) REFERENCES `cliente` (`Email`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+DROP TABLE IF EXISTS `estandar`;
+CREATE TABLE `estandar` (
+  `Cliente` varchar(100) NOT NULL,
+  PRIMARY KEY (`Cliente`),
+  CONSTRAINT `Cliente_id` FOREIGN KEY (`Cliente`) REFERENCES `cliente` (`Email`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping routines for database 'db_producto3'
@@ -117,3 +131,10 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2022-03-27  1:25:45
+
+--
+-- crear el usuario estandar y darle los permisos adecuados
+--
+
+CREATE USER 'alumno'@'localhost' IDENTIFIED BY 'javacoders';
+GRANT SELECT, INSERT, UPDATE, DELETE ON db_producto3.* TO 'alumno'@'localhost';
