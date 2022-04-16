@@ -1,5 +1,7 @@
 package javacoders.modelo;
 
+import exception.DAOException;
+
 public class Datos {
 
 	private ListaArticulos listaArticulos;
@@ -13,12 +15,16 @@ public class Datos {
 	}
 	// ********* metodos y funciones de la Lista Articulos **************
 	// añadir un Articulo
-	public void addArticulo(Articulo articulo) {
+	public void addArticulo(Articulo articulo) throws DAOException {
 		listaArticulos.addArticulo(articulo);
 	}
 	// busca un articulo y lo devuelve
-	public Articulo buscarArticulo(Articulo art) {
+	public Articulo buscarArticulo(Articulo art) throws DAOException {
 		return listaArticulos.existe(art);
+	}
+	
+	public String MostrarArticulos() {
+		return listaArticulos.toString();
 	}
 
 	

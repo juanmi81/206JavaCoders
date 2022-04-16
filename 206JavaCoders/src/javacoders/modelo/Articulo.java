@@ -46,6 +46,17 @@ public class Articulo {
 	 * }
 	 */
 
+	public Articulo() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Articulo(String descripcion, float pvp, float gastoEnvio, int tiempoPrep) {
+		this.descripcion = descripcion;
+		this.pvp = pvp;
+		this.gastoEnvio = gastoEnvio;
+		this.tiempoPrep = tiempoPrep;
+	}
+
 	public float getGastoEnvio() {
 		return gastoEnvio;
 	}
