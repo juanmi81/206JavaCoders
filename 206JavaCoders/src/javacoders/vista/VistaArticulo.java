@@ -32,6 +32,7 @@ public class VistaArticulo {
 	}
 		// nuevo Articulo
 	public String damedescripcion() {
+		String salto = sc.nextLine();
 		System.out.println("Inserte la descripcion del articulo");
 		return sc.nextLine();
 	}
@@ -56,6 +57,15 @@ public class VistaArticulo {
 		// llamar a la funcion
 		System.out.println(this.articul);
 	}
+	
+	public void MostrarTodos(String ver) {
+		System.out.println(ver);
+	}
+
+	public void imprimir(String imp) {
+		System.out.println(imp);
+	}
+	
 // OP = 3 FIN DE GESTION
 	public void fingestion() {
 		System.out.println("saliendo de la gestion de articulos");

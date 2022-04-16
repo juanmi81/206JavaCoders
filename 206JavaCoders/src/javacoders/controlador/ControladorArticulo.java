@@ -1,6 +1,7 @@
 package javacoders.controlador;
 
 
+import exception.DAOException;
 import javacoders.modelo.Articulo;
 import javacoders.modelo.Datos;
 import javacoders.vista.VistaArticulo;
@@ -35,7 +36,7 @@ public class ControladorArticulo {
 					break;
 				case 2:
 					//ver articulo
-					verArticulo();
+					verTodos();
 					break;
 				case 3:
 					// salir del menu articulo
@@ -45,14 +46,24 @@ public class ControladorArticulo {
 		};
 	}
 
+	private void verTodos() {
+		// llamar a la vista 
+		String ver = this.datos.MostrarArticulos();
+		this.vista.MostrarTodos(ver);
+	}
+	
 	private void verArticulo() {
 		// llamar a la vista 
 		this.vista.verArticulo();
 	}
 // ------------------------------ nuevo articulo ---------------------------------------
 	private void nuevoArticulo() {
-		Articulo art = new Articulo(vista.damecodigo(), vista.damedescripcion(), vista.damepvp(), vista.damegastosdeenvio(), vista.dametiempopreparaion());
-		this.datos.addArticulo(art);
+		Articulo art = new Articulo(vista.damedescripcion(), vista.damepvp(), vista.damegastosdeenvio(), vista.dametiempopreparaion());
+		try {
+			this.datos.addArticulo(art);
+		} catch (DAOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	
