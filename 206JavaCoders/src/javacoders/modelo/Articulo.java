@@ -1,11 +1,31 @@
 package javacoders.modelo;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "articulo")
 public class Articulo {
 
-	private String codArticulo;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "codArticulo", unique = true)
+	private int codArticulo;
+
+	@Column(name = "descripcion")
 	private String descripcion;
+
+	@Column(name = "pvp", unique = true)
 	private float pvp;
-	private float gastoEnvio;
+
+	@Column(name = "gastosEnvio", unique = true)
+	private float gastosEnvio;
+
+	@Column(name = "tiempoPrep", unique = true)
 	private int tiempoPrep;
 
 	/**
@@ -14,37 +34,14 @@ public class Articulo {
 	 * @param pvp
 	 * @param tiempoPrep
 	 */
-
-	public Articulo(String codArticulo, String descripcion, float pvp, float gastoEnvio, int tiempoPrep) {
-
+	public Articulo(int codArticulo, String descripcion, float pvp, float gastoEnvio, int tiempoPrep) {
 		this.codArticulo = codArticulo;
 		this.descripcion = descripcion;
 		this.pvp = pvp;
-		this.gastoEnvio = gastoEnvio;
+		this.gastosEnvio = gastoEnvio;
 		this.tiempoPrep = tiempoPrep;
 
 	}
-
-	/*
-	 * public Articulo(char codArticulo, String descripcion, double pvp) {
-	 * 
-	 * this.codArticulo = codArticulo; this.descripcion = descripcion; this.pvp =
-	 * pvp;
-	 * 
-	 * }
-	 * 
-	 * public Articulo(char codArticulo, String descripcion) {
-	 * 
-	 * this.codArticulo = codArticulo; this.descripcion = descripcion;
-	 * 
-	 * }
-	 * 
-	 * public Articulo(char codArticulo) {
-	 * 
-	 * this.codArticulo = codArticulo;
-	 * 
-	 * }
-	 */
 
 	public Articulo() {
 		// TODO Auto-generated constructor stub
@@ -53,23 +50,23 @@ public class Articulo {
 	public Articulo(String descripcion, float pvp, float gastoEnvio, int tiempoPrep) {
 		this.descripcion = descripcion;
 		this.pvp = pvp;
-		this.gastoEnvio = gastoEnvio;
+		this.gastosEnvio = gastoEnvio;
 		this.tiempoPrep = tiempoPrep;
 	}
 
-	public float getGastoEnvio() {
-		return gastoEnvio;
+	public float getGastosEnvio() {
+		return gastosEnvio;
 	}
 
-	public void setGastoEnvio(float gastoEnvio) {
-		this.gastoEnvio = gastoEnvio;
+	public void setGastosEnvio(float gastoEnvio) {
+		this.gastosEnvio = gastoEnvio;
 	}
 
-	public String getCodArticulo() {
+	public int getCodArticulo() {
 		return codArticulo;
 	}
 
-	public void setCodArticulo(String codArticulo) {
+	public void setCodArticulo(int codArticulo) {
 		this.codArticulo = codArticulo;
 	}
 
@@ -102,7 +99,7 @@ public class Articulo {
 		if (obj instanceof Articulo) {
 			Articulo art = (Articulo) obj;
 
-			if (art.codArticulo.equals(codArticulo)) {
+			if (art.codArticulo == codArticulo) {
 				eq = true;
 			}
 		}

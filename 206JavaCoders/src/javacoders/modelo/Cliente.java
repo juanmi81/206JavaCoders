@@ -1,15 +1,39 @@
 package javacoders.modelo;
 
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "cliente")
+@DiscriminatorColumn(name="tipo")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class Cliente {
 
 	public static final String ESTANDAR = "estandar";
 	public static final String PREMIUM = "premium";
 	
+	@Id
+    @Column(name = "email", unique = true)
 	private String email;
+	
+    @Column(name = "nombre")
 	private String nombre;
+    
+    @Column(name = "direccion")
 	private String domicilio;
+    
+    @Column(name = "nif", unique = true)
 	private String nif;
 
+    public Cliente() {
+    	
+    }
+    
 	public Cliente(String email, String nombre, String domicilio, String nif) {
 		this.email = email;
 		this.nombre = nombre;

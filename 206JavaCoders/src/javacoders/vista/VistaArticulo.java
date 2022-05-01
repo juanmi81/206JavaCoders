@@ -20,7 +20,7 @@ public class VistaArticulo {
 			op = sc.nextInt();
 			// si la opcion no esta entre 1 y 3 se ejecuta una excepción
 			if ((op<1)||(op>3)) {
-				throw new Exception ("#La opción es invalida");
+				throw new Exception ("#La opci�n es invalida");
 			}
 		} catch (Exception e) {
 			// en caso de excepción se muestra el mensaje

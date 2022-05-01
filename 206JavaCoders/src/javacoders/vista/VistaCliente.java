@@ -17,7 +17,7 @@ public class VistaCliente {
 	public int getOpcion() {
 		int op = 0;
 		try {
-			System.out.println(" 1. Agregar Cliente \n 2. Mostrar Clientes \n 3. Salir del menu Articulos");
+			System.out.println(" 1. Agregar Cliente \n 2. Mostrar Clientes \n 3. Salir del menu cliente");
 			op = sc.nextInt();
 			// si la opcion no esta entre 1 y 3 se ejecuta una excepción
 			if ((op < 1) || (op > 3)) {

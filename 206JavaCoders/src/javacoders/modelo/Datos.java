@@ -1,14 +1,26 @@
 package javacoders.modelo;
 
+
+import java.util.List;
+
+import DAO.DAO;
+import  DAO.Factory;
 import exception.DAOException;
 
 public class Datos {
 
+	private DAO<Articulo, String> dao;
+	
 	private ListaArticulos listaArticulos;
 	private ListaClientes listaClientes;
 	private ListaPedido listaPedido;
 	
+	
+	
 	public Datos() {
+		Factory fact = new Factory();
+		this.dao = fact.crear(Factory.ARTICULO);
+		
 		listaArticulos = new ListaArticulos();
 		listaClientes = new ListaClientes();
 		listaPedido = new ListaPedido();
@@ -16,15 +28,21 @@ public class Datos {
 	// ********* metodos y funciones de la Lista Articulos **************
 	// añadir un Articulo
 	public void addArticulo(Articulo articulo) throws DAOException {
-		listaArticulos.addArticulo(articulo);
+		dao.insertar(articulo);
 	}
 	// busca un articulo y lo devuelve
 	public Articulo buscarArticulo(Articulo art) throws DAOException {
 		return listaArticulos.existe(art);
 	}
 	
-	public String MostrarArticulos() {
-		return listaArticulos.toString();
+	public String MostrarArticulos() throws DAOException {
+		List<Articulo> lstArticulo = dao.obtener();
+		String result = "";
+		for(Articulo articulo: lstArticulo) {
+			result += articulo.toString()+"\n";
+		}
+		
+		return result;
 	}
 
 	

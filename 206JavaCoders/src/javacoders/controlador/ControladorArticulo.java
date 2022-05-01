@@ -24,14 +24,14 @@ public class ControladorArticulo {
 		this.vista = vista;
 	}
 	// visualizaciÃ³n del menu articulos
-	public void iniciar() {
+	public void iniciar() throws DAOException {
 		int op2 = 0;
 		// bucle de subprograma articulos
 		while (op2 != 3) {
 			op2 = vista.getOpcion();
 			switch (op2) {
 				case 1:
-					//añadir articulo
+					//a�adir articulo
 					nuevoArticulo();
 					break;
 				case 2:
@@ -46,7 +46,7 @@ public class ControladorArticulo {
 		};
 	}
 
-	private void verTodos() {
+	private void verTodos() throws DAOException {
 		// llamar a la vista 
 		String ver = this.datos.MostrarArticulos();
 		this.vista.MostrarTodos(ver);

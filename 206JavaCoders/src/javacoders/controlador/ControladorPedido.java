@@ -1,5 +1,6 @@
 package javacoders.controlador;
 
+import exception.DAOException;
 import javacoders.modelo.Articulo;
 import javacoders.modelo.Cliente;
 import javacoders.modelo.Datos;
@@ -34,7 +35,7 @@ public class ControladorPedido {
 				this.vista = vista;
 			}
 			// visualizaciÃ³n del menu Pedido
-			public void iniciar() {
+			public void iniciar() throws DAOException {
 				int op2 = 0;
 				// bucle de subprograma Pedido
 				while (op2 != 5) {
@@ -65,7 +66,7 @@ public class ControladorPedido {
 				};
 			}
 
-			private void nuevoPedido() {
+			private void nuevoPedido() throws DAOException {
 				
 				// articulo del pedido -----------------------------------
 				Articulo art = buscaarticulo();
@@ -84,8 +85,8 @@ public class ControladorPedido {
 			}
 	
 			// función para buscar un articulo
-			public Articulo buscaarticulo() {
-				String codarticulo = vista.NPpedirArticulo();
+			public Articulo buscaarticulo() throws DAOException {
+				int codarticulo = vista.NPpedirArticulo();
 				// buscar articulo
 				Articulo a = new Articulo(codarticulo,"", 0, 0, 0);
 				a = datos.buscarArticulo(a);

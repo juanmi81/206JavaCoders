@@ -7,11 +7,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import DAO.ArticuloDAO;
+import DAO.DAO;
 import exception.DAOException;
 import javacoders.modelo.Articulo;
 
-public class MysqlArticuloDao implements ArticuloDAO{
+public class MysqlArticuloDao implements DAO<Articulo, String>{
 
 	final String INSERT = "INSERT INTO db_producto3.artículo (Descripción, PVP, GastosEnvio, TiempoPrep) VALUES ( ? ,? , ?, ?);";
 	final String UPDATE = "UPDATE db_producto3.artículo SET Descripción = \"?\", PVP = ?, GastosEnvio = ?, TiempoPrep = ? WHERE codArticulo = ?;";
@@ -32,7 +32,7 @@ public class MysqlArticuloDao implements ArticuloDAO{
 			stat = conn.prepareStatement(INSERT);
 			stat.setString(1, a.getDescripcion());
 			stat.setDouble(2, (double)a.getPvp());
-			stat.setDouble(3, (double)a.getGastoEnvio());
+			stat.setDouble(3, (double)a.getGastosEnvio());
 			stat.setInt(4, a.getTiempoPrep());
 			
 			if (stat.executeUpdate() == 0) {
@@ -58,9 +58,9 @@ public class MysqlArticuloDao implements ArticuloDAO{
 			stat = conn.prepareStatement(UPDATE);
 			stat.setString(1, a.getDescripcion());
 			stat.setDouble(2, (double)a.getPvp());
-			stat.setDouble(3, (double)a.getGastoEnvio());
+			stat.setDouble(3, (double)a.getGastosEnvio());
 			stat.setInt(4, a.getTiempoPrep());
-			stat.setString(5, a.getCodArticulo());
+			stat.setInt(5, a.getCodArticulo());
 			
 			if (stat.executeUpdate() == 0) {
 				throw new DAOException("puede que no se actualice correctamente");
@@ -83,7 +83,7 @@ public class MysqlArticuloDao implements ArticuloDAO{
 		PreparedStatement stat = null;
 		try {
 			stat = conn.prepareStatement(DELETE);
-			stat.setString(1, a.getCodArticulo());
+			stat.setInt(1, a.getCodArticulo());
 			
 			if (stat.executeUpdate() == 0) {
 				throw new DAOException("puede que no se limine correctamente");
@@ -103,10 +103,10 @@ public class MysqlArticuloDao implements ArticuloDAO{
 
 	private Articulo convertir(ResultSet rs) throws SQLException {
 		Articulo art = new Articulo();
-		art.setCodArticulo(Integer.toString(rs.getInt("codArticulo"))); 
+		art.setCodArticulo(rs.getInt("codArticulo")); 
 		art.setDescripcion(rs.getString("Descripción"));
 		art.setPvp((float)rs.getDouble("PVP"));
-		art.setGastoEnvio((float)rs.getDouble("GastosEnvio"));
+		art.setGastosEnvio((float)rs.getDouble("GastosEnvio"));
 		art.setTiempoPrep(rs.getInt("TiempoPrep"));
 		return art;
 	}

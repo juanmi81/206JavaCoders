@@ -92,7 +92,7 @@ public class Pedido {
 	}
 	
 	public float precioEnvio() {
-		float gastosEnvio = articulo.getGastoEnvio();
+		float gastosEnvio = articulo.getGastosEnvio();
 		float precioEnvio = gastosEnvio;
 		String tipoCliente = cliente.tipoCliente();
 		if (tipoCliente.equals(Cliente.PREMIUM)) {

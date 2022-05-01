@@ -30,9 +30,9 @@ public class VistaPedido {
 	}
 	// ----------------------------- AÃ±adir Pedido -------------------------------------------------------------------
 	// pedir codigo del producto y devuelve un string ----------------------------------------
-	public String NPpedirArticulo() {
-		System.out.println("Dame el codig del producto que quieres pedir");
-		return (sc.next());
+	public int NPpedirArticulo() {
+		System.out.println("Dame el código del producto que quieres pedir");
+		return (sc.nextInt());
 	}
 	// pedir el mail del cliente para saber si existe -----------------------------------------
 	public String NPpedirCliente() {

@@ -4,11 +4,18 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 public class Conexion {
+	// Create an EntityManagerFactory when you start the application.
+    public static final EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence
+            .createEntityManagerFactory("JavaHelps");
+    
 	private static final String Controlador = "com.mysql.cj.jdbc.Driver";// "com.mysql.jdbc.Connection";
 	private static final String URL = "jdbc:mysql://localhost:3306/db_producto3";
-	private static final String User = "alumno";//"root"; // "juanmi";
-	private static final String Pass = "javacoders";//"Vivi83719"; //"javacoders";
+	private static final String User = "root";//"root"; // "juanmi";
+	private static final String Pass = "root";//"Vivi83719"; //"javacoders";
 
 	static {
 		try {

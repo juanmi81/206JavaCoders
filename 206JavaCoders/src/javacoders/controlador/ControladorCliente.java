@@ -1,13 +1,12 @@
 package javacoders.controlador;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import DAO.ClienteDAO;
+import DAO.ClienteDAO2;
 import DAO.Factory;
 import DAO.FactoryDAO;
-import exception.ClientException;
+import exception.DAOException;
 import javacoders.modelo.Cliente;
 import javacoders.modelo.Datos;
 import javacoders.modelo.Estandar;
@@ -19,13 +18,13 @@ public class ControladorCliente {
 	private Cliente modelo;
 	private VistaCliente vista;
 	private Datos datos;
-	private ClienteDAO clienteDAO;
+	private ClienteDAO2 clienteDAO;
 
 	public ControladorCliente(Datos datos) {
 		this.datos = datos;
 		this.vista = new VistaCliente();
 		FactoryDAO factoryDAO = new Factory();
-		clienteDAO = (ClienteDAO) factoryDAO.crear(FactoryDAO.CLIENTE);
+		clienteDAO = (ClienteDAO2) factoryDAO.crear(FactoryDAO.CLIENTE);
 	}
 
 	// geter y seter de atributos
@@ -98,10 +97,8 @@ public class ControladorCliente {
 			// datos.addCliente(this.modelo);
 			// añadirlo a la base de datos
 			try {
-				clienteDAO.addCliente(modelo);
-			} catch (SQLException e) {
-				System.err.println("Error al insertar el cliente " + e.getMessage());
-			} catch (ClientException e) {
+				clienteDAO.insertar(modelo);
+			}  catch (DAOException e) {
 				System.err.println(e.getMessage());
 			}
 		} else
@@ -142,7 +139,7 @@ public class ControladorCliente {
 	// -------------------------------------- Ver clientes, clientes estandar y
 	// clientes premium ---------------------------------------------------/
 	private void verClientes() {
-		List<Cliente> lstCliente = new ArrayList();
+		List lstCliente = new ArrayList<>();
 		// variable lista de clientes, es lo que se va a mostrar por pantalla
 		// String quieroLista = "";
 		// preguntaremos que opcion quiere el usuario, listar todos los clientes, los
@@ -155,17 +152,17 @@ public class ControladorCliente {
 			// quieroLista
 			switch (op2) {
 			case 1:
-				lstCliente = clienteDAO.findAll();
+				lstCliente = clienteDAO.obtener();
 				break;
 				// quieroLista = this.datos.toStringClientes();
 			case 2:
 				// solo clientes standar
-				lstCliente = clienteDAO.findByType(false);
+				lstCliente = clienteDAO.findEstandar();
 				// quieroLista = this.datos.toStringEstandar();
 				break;
 			case 3:
 				// solo clientes premium
-				lstCliente = clienteDAO.findByType(true);
+				lstCliente = clienteDAO.findPremium();
 				// quieroLista = this.datos.toStringPremium();
 				break;
 			default:

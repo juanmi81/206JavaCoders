@@ -1,7 +1,16 @@
 package javacoders.modelo;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue(value="Estandar")
 public class Estandar extends Cliente {
 
+	public Estandar() {
+		
+	}
+	
 	public Estandar(String email, String nombre, String domicilio, String nif) {
 		super(email, nombre, domicilio, nif);
 
