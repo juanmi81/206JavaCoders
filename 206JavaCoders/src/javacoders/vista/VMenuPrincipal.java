@@ -2,16 +2,28 @@ package javacoders.vista;
 
 import java.util.Scanner;
 
+
+// fx
+import FX.controlamenu1;
+
 public class VMenuPrincipal {
 
 	Scanner sc = new Scanner(System.in);
+	
+	//private Stage primaryStage = new Stage();
 		
-	public VMenuPrincipal() {
-		
+	public VMenuPrincipal(String[] args) {
+		//Fondo fondo = new Fondo();
+	//	fondo.main(args);
 	}
 	
-	public int getOpcion() {
+	public int getOpcion(String[] args) {
 		int op = 0;
+		
+		controlamenu1 menu = new controlamenu1();
+		menu.main(args);
+		
+/*		int op = 0;
 		try {
 			System.out.println(" 1. Gestión de Clientes \n 2. Gestión de Artículos \n 3. Gestión de Pedidos \n 4. Salir del programa");
 			op = sc.nextInt();
@@ -28,6 +40,10 @@ public class VMenuPrincipal {
 		return op;
 	}
 	// OP = 4 final
+	 * 
+	 */
+		return op;
+	}
 	public void OPfinal() {
 		System.out.println("Fin del programa");
 	}
