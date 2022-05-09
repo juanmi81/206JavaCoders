@@ -8,8 +8,9 @@ import javacoders.vista.VMenuPrincipal;
 // clase de menu princiapl, desde aqui se selecciona que vamos a gestionar
 public class ControlerMain {
 
+	private String[] args;
 	// inicializar clases
-	private VMenuPrincipal menu = new VMenuPrincipal();
+	private VMenuPrincipal menu = new VMenuPrincipal(args);
 	// gestion de aticulos
 	private Datos datos;
 	private ControladorArticulo CArticulo;
@@ -31,7 +32,7 @@ public class ControlerMain {
 
 		// Bucle del programa
 		while (op != 4) {
-			op = menu.getOpcion();
+			op = menu.getOpcion(args);
 			switch (op) {
 			case 1:
 				// gestion clientes
