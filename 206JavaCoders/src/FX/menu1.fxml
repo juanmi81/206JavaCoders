@@ -5,14 +5,31 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.FlowPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FX.Controlamenu1">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
-          <Menu mnemonicParsing="false" text="Clientes" />
-          <Menu mnemonicParsing="false" text="Articulos" />
-          <Menu mnemonicParsing="false" text="Pedidos" />
-          <Menu mnemonicParsing="false" text="Salir" />
+            <Menu mnemonicParsing="false" text="Articulos">
+              <items>
+                <MenuItem fx:id="verart" mnemonicParsing="false" text="ver articulos" onAction="#verarticulo" />
+                  <MenuItem fx:id="nuevoart" mnemonicParsing="false" onAction="#nuevoarticulo" text="nuevo articulo" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Clientes">
+               <items>
+                  <MenuItem fx:id="vercli" mnemonicParsing="false" text="Ver clientes" />
+                  <MenuItem fx:id="nuevocli" mnemonicParsing="false" onAction="#nuevocliente" text="Nuevo cliente" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Pedidos">
+               <items>
+                  <MenuItem fx:id="nuevopedido" mnemonicParsing="false" text="Nuevo pedido" />
+                  <MenuItem fx:id="eliminapedido" mnemonicParsing="false" text="Eliminar pedido" />
+                  <MenuItem fx:id="pendientes" mnemonicParsing="false" text="Pedidos pendientes" />
+                  <MenuItem fx:id="enviados" mnemonicParsing="false" text="Pedidos enviados" />
+               </items>
+            </Menu>
+          <Menu fx:id="salir" mnemonicParsing="false" onAction="#fuera" text="Salir" />
         </menus>
       </MenuBar>
    </top>

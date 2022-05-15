@@ -15,7 +15,7 @@ public class Conexion {
 	private static final String Controlador = "com.mysql.cj.jdbc.Driver";// "com.mysql.jdbc.Connection";
 	private static final String URL = "jdbc:mysql://localhost:3306/db_producto3";
 	private static final String User = "root";//"root"; // "juanmi";
-	private static final String Pass = "root";//"Vivi83719"; //"javacoders";
+	private static final String Pass = "";//"Vivi83719"; //"javacoders";
 
 	static {
 		try {

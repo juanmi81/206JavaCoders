@@ -2,9 +2,7 @@ package javacoders.vista;
 
 import java.util.Scanner;
 
-
-// fx
-import FX.controlamenu1;
+import FX.Controlamenu1;
 
 public class VMenuPrincipal {
 
@@ -20,7 +18,7 @@ public class VMenuPrincipal {
 	public int getOpcion(String[] args) {
 		int op = 0;
 		
-		controlamenu1 menu = new controlamenu1();
+		Controlamenu1 menu = new Controlamenu1();
 		menu.main(args);
 		
 /*		int op = 0;

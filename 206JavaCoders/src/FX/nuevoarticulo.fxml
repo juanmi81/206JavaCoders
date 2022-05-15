@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.FlowPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FX.Nuevoarticulocontroler">
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="58.0" layoutY="160.0" text="Descripción" />
+            <Label layoutX="58.0" layoutY="200.0" text="PVP" />
+            <Label layoutX="58.0" layoutY="243.0" text="Gastos de envío" />
+            <Label layoutX="58.0" layoutY="287.0" text="Tiempo de preparación" />
+            <TextField fx:id="articulodescripcion" layoutX="198.0" layoutY="156.0" />
+            <TextField fx:id="articulopvp" layoutX="198.0" layoutY="196.0" />
+            <TextField fx:id="articuloGE" layoutX="198.0" layoutY="239.0" />
+            <TextField fx:id="articuloTiempo" layoutX="198.0" layoutY="283.0" />
+            <Button fx:id="crearnuevoart" layoutX="463.0" layoutY="283.0" mnemonicParsing="false" onAction="#crearnuevoarticulo" text="Nuevo Articulo" />
+         </children>
+      </Pane>
+   </center>
+</BorderPane>
